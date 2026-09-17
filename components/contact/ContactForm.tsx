@@ -105,57 +105,95 @@ export const ContactForm: React.FC = () => {
         theme: "auto",
         size: "normal",
       });
-      turnstileWidgetIdRef.current = widgetId;
+      if (widgetId) {
+        turnstileWidgetIdRef.current = widgetId;
+      }
     } catch {
       // Ignore render errors in non-standard environments
     }
   }, [siteKey]);
 
-  useEffect(() => {
-    // Check if script is already present
-    const existingScript = document.getElementById("cf-turnstile-script");
-
-    if (window.turnstile) {
-      renderTurnstile();
-      return;
-    }
-
-    if (!existingScript) {
-      window.onloadTurnstileCallback = () => {
-        renderTurnstile();
-      };
-
-      const script = document.createElement("script");
-      script.id = "cf-turnstile-script";
-      script.src =
-        "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback&render=explicit";
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-    }
-
-    return () => {
-      if (turnstileWidgetIdRef.current && window.turnstile) {
+  const removeTurnstile = useCallback(() => {
+    const widgetId = turnstileWidgetIdRef.current;
+    if (widgetId) {
+      turnstileWidgetIdRef.current = null;
+      if (window.turnstile) {
         try {
-          window.turnstile.remove(turnstileWidgetIdRef.current);
-          turnstileWidgetIdRef.current = null;
+          window.turnstile.remove(widgetId);
         } catch {
           // ignore cleanup errors
         }
       }
-    };
-  }, [renderTurnstile]);
+    }
+  }, []);
 
-  const resetTurnstile = () => {
+  const resetTurnstile = useCallback(() => {
     setTurnstileToken("");
-    if (turnstileWidgetIdRef.current && window.turnstile) {
+    const widgetId = turnstileWidgetIdRef.current;
+    if (widgetId && window.turnstile) {
       try {
-        window.turnstile.reset(turnstileWidgetIdRef.current);
+        window.turnstile.reset(widgetId);
       } catch {
         // ignore
       }
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (status === "success") {
+      removeTurnstile();
+      return;
+    }
+
+    let isMounted = true;
+
+    const tryRender = () => {
+      if (isMounted) {
+        renderTurnstile();
+      }
+    };
+
+    if (window.turnstile) {
+      tryRender();
+    } else {
+      const existingScript = document.getElementById("cf-turnstile-script");
+
+      if (!existingScript) {
+        window.onloadTurnstileCallback = () => {
+          tryRender();
+        };
+
+        const script = document.createElement("script");
+        script.id = "cf-turnstile-script";
+        script.src =
+          "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback&render=explicit";
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      } else {
+        const intervalId = setInterval(() => {
+          if (window.turnstile) {
+            clearInterval(intervalId);
+            tryRender();
+          }
+        }, 50);
+
+        return () => {
+          isMounted = false;
+          clearInterval(intervalId);
+          removeTurnstile();
+        };
+      }
+    }
+
+    return () => {
+      isMounted = false;
+      if (window.onloadTurnstileCallback) {
+        window.onloadTurnstileCallback = () => {};
+      }
+      removeTurnstile();
+    };
+  }, [status, renderTurnstile, removeTurnstile]);
 
   const validateForm = (): boolean => {
     const errors: Record<string, string> = {};
@@ -236,6 +274,9 @@ export const ContactForm: React.FC = () => {
         // Track anonymous submission event (zero PII)
         trackContactFormSubmitted(reason);
 
+        // Cleanly remove widget before form unmounts for success view
+        removeTurnstile();
+
         setStatus("success");
         // Reset form inputs
         setReason("");
@@ -245,7 +286,7 @@ export const ContactForm: React.FC = () => {
         setMessage("");
         setWebsite("");
         setFieldErrors({});
-        resetTurnstile();
+        setTurnstileToken("");
       } else {
         setStatus("error");
         if (data.error === "verification_failed") {
@@ -272,7 +313,7 @@ export const ContactForm: React.FC = () => {
     setStatus("idle");
     setSubmitError("");
     setFieldErrors({});
-    resetTurnstile();
+    setTurnstileToken("");
   };
 
   return (

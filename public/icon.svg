@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#020617"/>
+  <!-- Isometric 3D Cube -->
+  <path d="M16 5.5L26 11.27V20.73L16 26.5L6 20.73V11.27L16 5.5Z" stroke="#34d399" stroke-width="2" stroke-linejoin="round" fill="#0f172a"/>
+  <path d="M16 5.5V16M26 11.27L16 16M6 11.27L16 16" stroke="#34d399" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M16 16V26.5" stroke="#10b981" stroke-width="2"/>
+  <!-- Top Face subtle highlight -->
+  <polygon points="16,6.5 25,11.7 16,15.5 7,11.7" fill="#34d399" fill-opacity="0.15"/>
+</svg>

@@ -1,0 +1,8 @@
+# Wrangler Pages local development environment variables
+# Copy to .dev.vars (which is gitignored) when running: npx wrangler pages dev out
+
+TURNSTILE_SECRET_KEY=
+RESEND_API_KEY=
+CONTACT_TO_EMAIL=
+CONTACT_FROM_EMAIL=
+

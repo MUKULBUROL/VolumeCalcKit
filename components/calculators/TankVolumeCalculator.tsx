@@ -112,7 +112,7 @@ export const TankVolumeCalculator: React.FC = () => {
   }, [result]);
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-4 sm:p-6 space-y-6">
+    <div className="bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl p-5 sm:p-7 space-y-6">
       {/* Tank Shape Selector Tabs */}
       <div>
         <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">

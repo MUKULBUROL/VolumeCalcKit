@@ -71,7 +71,7 @@ export const CftToCbmCalculator: React.FC = () => {
   const quickTableValues = direction === "cft-to-cbm" ? [10, 25, 50, 100, 200, 500, 1000] : [1, 2, 5, 10, 20, 30, 40];
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-4 sm:p-6 space-y-6">
+    <div className="bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl p-5 sm:p-7 space-y-6">
       {/* Top Header & Direction Toggle */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
         <div>

@@ -8,7 +8,8 @@ export type DiagramType =
   | "rectangular_prism"
   | "tank_vertical"
   | "tank_horizontal"
-  | "pipe";
+  | "pipe"
+  | "cbm_box";
 
 interface DiagramSVGProps {
   type: DiagramType;
@@ -22,6 +23,65 @@ export const DiagramSVG: React.FC<DiagramSVGProps> = ({
   fillPercentage = 0,
 }) => {
   switch (type) {
+    case "cbm_box":
+      return (
+        <svg
+          viewBox="0 0 280 200"
+          className={className}
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="CBM box dimension diagram"
+        >
+          {/* 3D Isometric Cardboard Box */}
+          {/* Top Face */}
+          <polygon
+            points="140,30 220,70 140,110 60,70"
+            className="fill-amber-800/20 dark:fill-amber-700/30 stroke-amber-600 dark:stroke-amber-400"
+            strokeWidth="1.5"
+          />
+          {/* Tape line across top */}
+          <line x1="100" y1="50" x2="180" y2="90" className="stroke-amber-500/60 dark:stroke-amber-300/40" strokeWidth="6" strokeDasharray="4 2" />
+
+          {/* Left Face */}
+          <polygon
+            points="60,70 140,110 140,175 60,135"
+            className="fill-amber-900/30 dark:fill-amber-800/40 stroke-amber-600 dark:stroke-amber-400"
+            strokeWidth="1.5"
+          />
+
+          {/* Right Face */}
+          <polygon
+            points="140,110 220,70 220,135 140,175"
+            className="fill-amber-950/40 dark:fill-amber-900/50 stroke-amber-600 dark:stroke-amber-400"
+            strokeWidth="1.5"
+          />
+
+          {/* Dimension Lines and Arrows matching Image 3 */}
+          {/* Height (H) - Vertical on left */}
+          <line x1="45" y1="70" x2="45" y2="135" className="stroke-blue-500 dark:stroke-cyan-400" strokeWidth="1.5" />
+          <line x1="40" y1="70" x2="50" y2="70" className="stroke-blue-500 dark:stroke-cyan-400" strokeWidth="1.5" />
+          <line x1="40" y1="135" x2="50" y2="135" className="stroke-blue-500 dark:stroke-cyan-400" strokeWidth="1.5" />
+          <text x="38" y="105" textAnchor="end" className="fill-blue-600 dark:fill-cyan-400 text-[11px] font-mono font-bold">
+            Height (H)
+          </text>
+
+          {/* Width (W) - Bottom Left */}
+          <line x1="50" y1="145" x2="130" y2="185" className="stroke-blue-500 dark:stroke-cyan-400" strokeWidth="1.5" />
+          <circle cx="50" cy="145" r="2" className="fill-blue-500 dark:fill-cyan-400" />
+          <circle cx="130" cy="185" r="2" className="fill-blue-500 dark:fill-cyan-400" />
+          <text x="75" y="180" className="fill-blue-600 dark:fill-cyan-400 text-[11px] font-mono font-bold">
+            Width (W)
+          </text>
+
+          {/* Length (L) - Bottom Right */}
+          <line x1="150" y1="185" x2="230" y2="145" className="stroke-blue-500 dark:stroke-cyan-400" strokeWidth="1.5" />
+          <circle cx="150" cy="185" r="2" className="fill-blue-500 dark:fill-cyan-400" />
+          <circle cx="230" cy="145" r="2" className="fill-blue-500 dark:fill-cyan-400" />
+          <text x="200" y="180" className="fill-blue-600 dark:fill-cyan-400 text-[11px] font-mono font-bold">
+            Length (L)
+          </text>
+        </svg>
+      );
     case "cylinder":
       return (
         <svg

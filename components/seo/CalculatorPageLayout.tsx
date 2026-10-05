@@ -5,7 +5,19 @@ import { RelatedCalculators } from "@/components/seo/RelatedCalculators";
 import { AdSlot } from "@/components/layout/AdSlot";
 import { CalculatorMeta, CalculatorCategory } from "@/types/calculator";
 import { getRelatedCalculators } from "@/lib/constants/registry";
-import { ShieldCheck, HelpCircle, BookOpen, Layers, Lightbulb, CheckCircle2 } from "lucide-react";
+import { DiagramSVG, DiagramType } from "@/components/calculators/DiagramSVG";
+import { CustomCalculatorCTA } from "@/components/layout/CustomCalculatorCTA";
+import {
+  ShieldCheck,
+  HelpCircle,
+  BookOpen,
+  Layers,
+  Lightbulb,
+  CheckCircle2,
+  Zap,
+  Box,
+  ChevronDown,
+} from "lucide-react";
 
 interface CalculatorPageLayoutProps {
   meta: CalculatorMeta;
@@ -21,6 +33,7 @@ interface CalculatorPageLayoutProps {
     practicalNotesContent?: React.ReactNode;
     faqContent?: { question: string; answer: React.ReactNode }[];
   };
+  diagramType?: DiagramType;
 }
 
 const CATEGORY_NAMES: Record<CalculatorCategory, string> = {
@@ -35,12 +48,13 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
   meta,
   children,
   content,
+  diagramType,
 }) => {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com";
 
   const breadcrumbItems: BreadcrumbItem[] = [
     {
-      label: CATEGORY_NAMES[meta.category] || "Calculators",
+      label: "Calculators",
       href: "/calculators",
     },
     {
@@ -49,6 +63,27 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
   ];
 
   const related = getRelatedCalculators(meta.slug);
+
+  // Derive default diagram type if not explicitly passed
+  const resolvedDiagramType: DiagramType =
+    diagramType ||
+    (meta.slug === "cbm-calculator"
+      ? "cbm_box"
+      : meta.slug.includes("cylinder")
+      ? "cylinder"
+      : meta.slug.includes("pipe")
+      ? "pipe"
+      : meta.slug.includes("tank")
+      ? "tank_vertical"
+      : meta.slug.includes("sphere")
+      ? "sphere"
+      : meta.slug.includes("cone")
+      ? "cone"
+      : meta.slug.includes("cube")
+      ? "cube"
+      : meta.slug.includes("prism")
+      ? "rectangular_prism"
+      : "cbm_box");
 
   const schemaJsonLd = {
     "@context": "https://schema.org",
@@ -106,7 +141,7 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
   };
 
   return (
-    <article className="max-w-4xl mx-auto px-4 sm:px-6 py-5 sm:py-8">
+    <article className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
@@ -115,128 +150,185 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
       {/* 1. Breadcrumbs */}
       <Breadcrumbs items={breadcrumbItems} />
 
-      {/* 2. Header & Purpose */}
-      <header className="mb-5 sm:mb-6 space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-800/60 text-[11px] font-bold uppercase tracking-wider text-blue-800 dark:text-blue-300">
-          <span>{CATEGORY_NAMES[meta.category] || "Calculator"}</span>
+      {/* 2. Hero Section with Technical Illustration matching Image 3 */}
+      <header className="rounded-3xl bg-gradient-to-br from-navy-900 via-navy-850 to-navy-950 border border-blue-900/40 p-6 sm:p-8 lg:p-10 shadow-xl text-white relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          {/* Left: Titles & Factual Benefit Badges */}
+          <div className="lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/70 border border-blue-700/50 text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">
+              <span>{CATEGORY_NAMES[meta.category] || "Calculator"}</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+              {meta.h1}
+            </h1>
+
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+              {meta.shortDescription}
+            </p>
+
+            {/* Factual Benefit Badges matching Image 3 */}
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-navy-800/80 border border-blue-900/50">
+                <Zap className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                <div>
+                  <div className="font-bold text-white">Instant results</div>
+                  <div className="text-[11px] text-slate-400">Real-time calculation</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-navy-800/80 border border-blue-900/50">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <div>
+                  <div className="font-bold text-white">Accurate &amp; reliable</div>
+                  <div className="text-[11px] text-slate-400">Standard SI formulas</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-navy-800/80 border border-blue-900/50">
+                <Box className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <div>
+                  <div className="font-bold text-white">Free to use</div>
+                  <div className="text-[11px] text-slate-400">No sign up required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Technical Dimension Illustration Card matching Image 3 */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center">
+            <div className="w-full max-w-sm rounded-2xl bg-navy-950/80 border border-blue-800/50 p-4 shadow-2xl backdrop-blur-sm">
+              <DiagramSVG type={resolvedDiagramType} className="w-full h-auto max-h-[170px]" />
+              <div className="mt-3 pt-3 border-t border-navy-750 flex items-center justify-between text-xs text-slate-400">
+                <span className="font-mono text-[11px]">Technical Dimension Schematic</span>
+                <span className="text-cyan-400 font-bold font-mono">100% Vector</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight text-balance">
-          {meta.h1}
-        </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl text-pretty">
-          {meta.shortDescription}
-        </p>
       </header>
 
-      {/* 3. Interactive Calculator Leaf Component */}
-      <section aria-label={`Interactive ${meta.h1}`} className="mb-8">
+      {/* 3. Interactive Calculator Component */}
+      <section aria-label={`Interactive ${meta.h1}`}>
         {children}
       </section>
 
       {/* Ad slot after calculator */}
       <AdSlot slotId="after-calculator" />
 
-      {/* 4. Rich Server-Rendered Supporting Content Sections */}
-      <div className="space-y-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+      {/* 4. Three-Card Technical Grid matching Image 3 (Formula, Worked Example, Use Cases) */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {/* Card 1: Formula */}
+        <section className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2 mb-3 text-slate-900 dark:text-white font-bold text-base border-b border-slate-100 dark:border-navy-800 pb-2.5">
+              <Layers className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+              <span>{content.formulaTitle || "Formula"}</span>
+            </div>
+            <div className="space-y-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              {content.formulaContent}
+            </div>
+          </div>
+        </section>
 
-        {/* How to calculate */}
-        <section className="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs">
-          <h2 className="text-base sm:text-lg font-bold text-slate-950 dark:text-slate-100 mb-3.5 border-b border-slate-100 dark:border-slate-800 pb-2.5 flex items-center gap-2 scroll-mt-24">
-            <BookOpen className="w-4 h-4 text-blue-600 dark:text-blue-400" aria-hidden="true" />
+        {/* Card 2: Worked Example */}
+        <section className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2 mb-3 text-slate-900 dark:text-white font-bold text-base border-b border-slate-100 dark:border-navy-800 pb-2.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <span>{content.workedExampleTitle || "Worked Example"}</span>
+            </div>
+            <div className="space-y-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-mono">
+              {content.workedExampleContent}
+            </div>
+          </div>
+        </section>
+
+        {/* Card 3: Common Use Cases / Practical Notes */}
+        <section className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2 mb-3 text-slate-900 dark:text-white font-bold text-base border-b border-slate-100 dark:border-navy-800 pb-2.5">
+              <Lightbulb className="w-4 h-4 text-amber-500 dark:text-amber-400" />
+              <span>Common Use Cases</span>
+            </div>
+            <div className="space-y-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              {content.practicalNotesContent || content.howToContent}
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Additional Units / How-to Details if provided */}
+      {content.howToContent && content.practicalNotesContent && (
+        <section className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 sm:p-7 shadow-sm">
+          <h2 className="text-base sm:text-lg font-bold text-slate-950 dark:text-slate-100 mb-3.5 border-b border-slate-100 dark:border-navy-800 pb-2.5 flex items-center gap-2">
+            <BookOpen className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
             <span>{content.howToTitle || `How to Calculate ${meta.h1.replace(" Calculator", "")}`}</span>
           </h2>
-          <div className="space-y-3 text-slate-700 dark:text-slate-300">{content.howToContent}</div>
+          <div className="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            {content.howToContent}
+          </div>
         </section>
+      )}
 
-        {/* Formula breakdown */}
-        <section className="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs">
-          <h2 className="text-base sm:text-lg font-bold text-slate-950 dark:text-slate-100 mb-3.5 border-b border-slate-100 dark:border-slate-800 pb-2.5 flex items-center gap-2 scroll-mt-24">
-            <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
-            <span>{content.formulaTitle || "Formula & Mathematical Derivation"}</span>
-          </h2>
-          <div className="space-y-3 text-slate-700 dark:text-slate-300">{content.formulaContent}</div>
-        </section>
-
-        {/* Worked Example */}
-        <section className="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs">
-          <h2 className="text-base sm:text-lg font-bold text-slate-950 dark:text-slate-100 mb-3.5 border-b border-slate-100 dark:border-slate-800 pb-2.5 flex items-center gap-2 scroll-mt-24">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-            <span>{content.workedExampleTitle || "Step-by-Step Worked Example"}</span>
-          </h2>
-          <div className="space-y-3 text-slate-700 dark:text-slate-300">{content.workedExampleContent}</div>
-        </section>
-
-        {/* Units and Conversions if provided */}
-        {content.unitsAndConversionsContent && (
-          <section className="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs">
-            <h2 className="text-base sm:text-lg font-bold text-slate-950 dark:text-slate-100 mb-3.5 border-b border-slate-100 dark:border-slate-800 pb-2.5 scroll-mt-24">
-              Units and Measurement Conversions
-            </h2>
-            <div className="space-y-3 text-slate-700 dark:text-slate-300">{content.unitsAndConversionsContent}</div>
-          </section>
-        )}
-
-        {/* Practical notes and common mistakes */}
-        {content.practicalNotesContent && (
-          <section className="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs">
-            <h2 className="text-base sm:text-lg font-bold text-slate-950 dark:text-slate-100 mb-3.5 border-b border-slate-100 dark:border-slate-800 pb-2.5 flex items-center gap-2 scroll-mt-24">
-              <Lightbulb className="w-4 h-4 text-amber-500 dark:text-amber-400" aria-hidden="true" />
-              <span>Practical Notes & Guidelines</span>
-            </h2>
-            <div className="space-y-3 text-slate-700 dark:text-slate-300">{content.practicalNotesContent}</div>
-          </section>
-        )}
-
-        {/* FAQ if provided */}
+      {/* 5. Bottom Row: FAQs Accordion + Custom Calculator CTA Card matching Image 3 */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* FAQs Accordion (7 cols) */}
         {content.faqContent && content.faqContent.length > 0 && (
-          <section aria-labelledby="faq-heading" className="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs">
-            <h2 id="faq-heading" className="text-base sm:text-lg font-bold text-slate-950 dark:text-slate-100 mb-4 border-b border-slate-100 dark:border-slate-800 pb-2.5 flex items-center gap-2 scroll-mt-24">
-              <HelpCircle className="w-4 h-4 text-blue-600 dark:text-blue-400" aria-hidden="true" />
+          <div className="lg:col-span-7 bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 sm:p-7 shadow-sm space-y-4">
+            <h2 className="text-base sm:text-lg font-bold text-slate-950 dark:text-white flex items-center gap-2 border-b border-slate-100 dark:border-navy-800 pb-3">
+              <HelpCircle className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
               <span>Frequently Asked Questions</span>
             </h2>
-            <div className="space-y-3">
+
+            <div className="space-y-2.5">
               {content.faqContent.map((item, idx) => (
                 <details
                   key={idx}
-                  className="group border border-slate-200/80 dark:border-slate-800 rounded-xl p-3.5 bg-slate-50/50 dark:bg-slate-800/30 open:bg-white dark:open:bg-slate-900 transition-colors"
+                  className="group border border-slate-200/80 dark:border-navy-800 rounded-xl p-3.5 bg-slate-50/50 dark:bg-navy-850/50 open:bg-white dark:open:bg-navy-800 transition-colors"
                 >
-                  <summary className="font-bold text-sm text-slate-900 dark:text-slate-100 cursor-pointer list-none flex items-center justify-between gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+                  <summary className="font-bold text-xs sm:text-sm text-slate-900 dark:text-slate-100 cursor-pointer list-none flex items-center justify-between gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
                     <span>{item.question}</span>
-                    <span className="text-slate-400 group-open:rotate-180 transition-transform text-xs font-mono select-none">▼</span>
+                    <ChevronDown className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0" />
                   </summary>
-                  <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                  <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-2.5 pt-2 border-t border-slate-100 dark:border-navy-750">
                     {item.answer}
                   </div>
                 </details>
               ))}
             </div>
-          </section>
+          </div>
         )}
+
+        {/* Custom Calculator CTA Card matching Image 3 (5 cols) */}
+        <div className="lg:col-span-5 space-y-6">
+          <CustomCalculatorCTA variant="compact" toolName={meta.h1} />
+        </div>
       </div>
 
-      {/* 5. Contextual Related Calculators */}
+      {/* 6. Contextual Related Calculators */}
       <RelatedCalculators calculators={related} />
 
-      {/* 6. Last reviewed & methodology note */}
-      <footer className="mt-12 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-2">
+      {/* 7. Methodology Note */}
+      <footer className="pt-6 border-t border-slate-200 dark:border-navy-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-2">
         <div className="flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" aria-hidden="true" />
+          <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
           <span>
-            SI Verified Standard Mathematical Model. Last reviewed on{" "}
+            Verified calculation model. Last reviewed:{" "}
             <time dateTime={meta.lastReviewed}>{meta.lastReviewed}</time>.
           </span>
         </div>
         <div className="flex items-center gap-3">
           <Link
             href={`/contact?from=${meta.slug}`}
-            className="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none rounded"
+            className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
           >
-            Found a calculation issue? Report it
+            Report calculation issue
           </Link>
-          <span className="text-slate-300 dark:text-slate-700 hidden sm:inline" aria-hidden="true">•</span>
+          <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
           <Link
             href="/methodology"
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none rounded"
+            className="text-blue-600 dark:text-cyan-400 hover:underline font-semibold"
           >
             Calculation Methodology &rarr;
           </Link>

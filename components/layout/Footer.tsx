@@ -1,143 +1,140 @@
 import React from "react";
 import Link from "next/link";
-import { Box, ShieldCheck, Cpu } from "lucide-react";
+import { Box, Mail, ArrowRight, Settings } from "lucide-react";
+import { CustomCalculatorCTA } from "./CustomCalculatorCTA";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-950 text-slate-400 text-xs border-t border-slate-800 mt-auto">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          {/* Col 1: Popular Calculators */}
-          <div>
-            <h3 className="text-white font-bold text-xs uppercase tracking-wider mb-4 text-slate-200">
-              Popular Calculators
-            </h3>
-            <ul className="space-y-2.5 font-medium">
-              <li>
-                <Link href="/cylinder-volume-calculator" className="hover:text-emerald-400 transition-colors">
-                  Cylinder Volume Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/cbm-calculator" className="hover:text-emerald-400 transition-colors">
-                  CBM Freight Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/tank-volume-calculator" className="hover:text-emerald-400 transition-colors">
-                  Tank Volume & Dip Fill
-                </Link>
-              </li>
-              <li>
-                <Link href="/cubic-feet-calculator" className="hover:text-emerald-400 transition-colors">
-                  Cubic Feet (CFT) Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/cubic-meter-calculator" className="hover:text-emerald-400 transition-colors">
-                  Cubic Meter (m³) Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/volume-converter" className="hover:text-emerald-400 transition-colors">
-                  Volume Unit Converter
-                </Link>
-              </li>
-            </ul>
+    <footer className="bg-navy-950 text-slate-400 text-xs border-t border-slate-800/80 mt-auto relative overflow-hidden">
+      {/* Pre-footer CTA Banner matching Image 4 */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-8 sm:pt-16 sm:pb-12">
+        <CustomCalculatorCTA />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12 sm:pb-16 pt-4">
+        {/* 4 Columns matching Image 4 & Requirement 13 */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 pb-12 border-b border-slate-800/70">
+          {/* Column 1: Brand & Description */}
+          <div className="col-span-2 md:col-span-1 space-y-4">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2.5 font-bold text-white tracking-tight hover:opacity-95 transition-opacity"
+            >
+              <div className="w-8 h-8 rounded-lg bg-navy-900 border border-blue-500/40 flex items-center justify-center shadow-inner">
+                <Box className="w-4 h-4 text-cyan-400" aria-hidden="true" />
+              </div>
+              <span className="text-base font-black text-white tracking-tight">
+                VolumeCalc<span className="text-blue-500">Kit</span>
+              </span>
+            </Link>
+            <p className="text-xs text-slate-400 leading-relaxed max-w-xs">
+              Simple volume, capacity and CBM calculators for practical everyday use. Fast, accurate, and free to use.
+            </p>
+            <div className="pt-1">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                <span>Contact support &amp; inquiries &rarr;</span>
+              </Link>
+            </div>
           </div>
 
-          {/* Col 2: Shape & Shipping Tools */}
+          {/* Column 2: Calculators */}
           <div>
             <h3 className="text-white font-bold text-xs uppercase tracking-wider mb-4 text-slate-200">
-              3D Solids & Logistics
+              Calculators
             </h3>
             <ul className="space-y-2.5 font-medium">
               <li>
-                <Link href="/volume-calculator" className="hover:text-blue-400 transition-colors">
-                  All-in-One 3D Volume Engine
-                </Link>
-              </li>
-              <li>
-                <Link href="/sphere-volume-calculator" className="hover:text-blue-400 transition-colors">
-                  Sphere Volume Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/cone-volume-calculator" className="hover:text-blue-400 transition-colors">
-                  Cone Volume Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/rectangular-prism-volume-calculator" className="hover:text-blue-400 transition-colors">
-                  Rectangular Prism & Box
+                <Link href="/cbm-calculator" className="hover:text-blue-400 transition-colors">
+                  CBM Calculator
                 </Link>
               </li>
               <li>
                 <Link href="/pipe-volume-calculator" className="hover:text-blue-400 transition-colors">
-                  Pipe & Bore Internal Capacity
+                  Pipe Volume
                 </Link>
               </li>
               <li>
-                <Link href="/volumetric-weight-calculator" className="hover:text-blue-400 transition-colors">
-                  Volumetric Weight (Air/Sea)
+                <Link href="/cylinder-volume-calculator" className="hover:text-blue-400 transition-colors">
+                  Cylinder Volume
                 </Link>
               </li>
               <li>
-                <Link href="/cubic-yard-calculator" className="hover:text-blue-400 transition-colors">
-                  Cubic Yard Landscape Calculator
+                <Link href="/tank-volume-calculator" className="hover:text-blue-400 transition-colors">
+                  Tank Volume
+                </Link>
+              </li>
+              <li>
+                <Link href="/volume-calculator" className="hover:text-blue-400 transition-colors">
+                  Volume Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors flex items-center gap-1 pt-1">
+                  <span>All Calculators</span>
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Resources & Education */}
+          {/* Column 3: Resources */}
           <div>
             <h3 className="text-white font-bold text-xs uppercase tracking-wider mb-4 text-slate-200">
-              Formulas & Standards
+              Resources
             </h3>
             <ul className="space-y-2.5 font-medium">
               <li>
-                <Link href="/volume-formulas" className="hover:text-indigo-400 transition-colors">
-                  Volume Formulas Handbook
+                <Link href="/how-to-calculate-volume" className="hover:text-blue-400 transition-colors">
+                  Guides
                 </Link>
               </li>
               <li>
-                <Link href="/how-to-calculate-volume" className="hover:text-indigo-400 transition-colors">
-                  How to Calculate Volume Guide
+                <Link href="/volume-formulas" className="hover:text-blue-400 transition-colors">
+                  Formulas
                 </Link>
               </li>
               <li>
-                <Link href="/how-to-calculate-cbm" className="hover:text-indigo-400 transition-colors">
-                  How to Calculate CBM for Shipping
+                <Link href="/volume-converter" className="hover:text-blue-400 transition-colors">
+                  Converters
                 </Link>
               </li>
               <li>
-                <Link href="/calculators" className="hover:text-indigo-400 transition-colors">
-                  Full Mathematical Directory
+                <Link href="/how-to-calculate-cbm" className="hover:text-blue-400 transition-colors">
+                  How to Calculate CBM
+                </Link>
+              </li>
+              <li>
+                <Link href="/methodology" className="hover:text-blue-400 transition-colors">
+                  Methodology
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: About & Legal */}
+          {/* Column 4: Company */}
           <div>
             <h3 className="text-white font-bold text-xs uppercase tracking-wider mb-4 text-slate-200">
-              VolumeCalcKit
+              Company
             </h3>
             <ul className="space-y-2.5 font-medium">
               <li>
                 <Link href="/about" className="hover:text-slate-200 transition-colors">
-                  About the Engine
-                </Link>
-              </li>
-              <li>
-                <Link href="/methodology" className="hover:text-slate-200 transition-colors">
-                  SI Mathematical Methodology
+                  About
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-slate-200 transition-colors">
-                  Contact & Feedback
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/custom-calculator" className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors flex items-center gap-1">
+                  <Settings className="w-3 h-3" />
+                  <span>Custom Calculator</span>
                 </Link>
               </li>
               <li>
@@ -154,30 +151,32 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center">
-              <Box className="w-3.5 h-3.5 text-emerald-400" />
-            </div>
-            <span className="font-bold text-slate-200 tracking-tight">VolumeCalcKit</span>
-            <span className="text-slate-600 hidden sm:inline">|</span>
-            <span className="text-slate-500 hidden sm:inline">
-              Zero-fluff, high-precision volume & capacity mathematical tools.
-            </span>
+        {/* Bottom bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-xs">
+          <div>
+            &copy; 2026 VolumeCalcKit. All rights reserved.
           </div>
-          <div className="text-slate-500 font-mono text-[11px] text-center md:text-right">
-            &copy; {new Date().getFullYear()} VolumeCalcKit. Free & Open Mathematics.
-          </div>
-        </div>
-
-        <div className="mt-4 pt-4 border-t border-slate-900/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-slate-600">
-          <div className="flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-            <span>Strict SI metric normalization before display conversion.</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Cpu className="w-3.5 h-3.5 text-blue-500" />
-            <span>Instant client-side zero-latency math engine.</span>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/contact"
+              className="text-slate-400 hover:text-slate-200 transition-colors"
+            >
+              Contact &amp; Feedback
+            </Link>
+            <span className="text-slate-700" aria-hidden="true">•</span>
+            <Link
+              href="/privacy"
+              className="text-slate-400 hover:text-slate-200 transition-colors"
+            >
+              Privacy
+            </Link>
+            <span className="text-slate-700" aria-hidden="true">•</span>
+            <Link
+              href="/terms"
+              className="text-slate-400 hover:text-slate-200 transition-colors"
+            >
+              Terms
+            </Link>
           </div>
         </div>
       </div>

@@ -43,6 +43,7 @@ const CLOUDFLARE_TEST_SITE_KEY = "1x00000000000000000000AA";
 export const ContactForm: React.FC = () => {
   const searchParams = useSearchParams();
   const fromParam = searchParams.get("from");
+  const reasonParam = searchParams.get("reason");
 
   const [reason, setReason] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -62,8 +63,11 @@ export const ContactForm: React.FC = () => {
   const siteKey =
     process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || CLOUDFLARE_TEST_SITE_KEY;
 
-  // Pre-fill calculator/page if ?from=<slug> query param is present
+  // Pre-fill calculator/page or reason query params
   useEffect(() => {
+    if (reasonParam && REASON_OPTIONS.includes(reasonParam as ReasonType)) {
+      setReason(reasonParam);
+    }
     if (fromParam) {
       const trimmed = fromParam.trim();
       const matched = getCalculatorBySlug(trimmed);
@@ -75,10 +79,10 @@ export const ContactForm: React.FC = () => {
             .join(" ");
 
       setPage(prefillName);
-      // If user came directly from a calculator, default to Calculation issue
+      // If user came directly from a calculator, default to Calculation issue if reason not set
       setReason((prev) => prev || "Calculation issue");
     }
-  }, [fromParam]);
+  }, [fromParam, reasonParam]);
 
   // Cloudflare Turnstile initialization
   const renderTurnstile = useCallback(() => {
@@ -317,7 +321,7 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xs">
+    <div className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 sm:p-8 shadow-xl">
       {/* Live Region for Screen Readers & Status Feedback */}
       <div
         role="status"

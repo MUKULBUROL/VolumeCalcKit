@@ -27,34 +27,34 @@ export default function AboutPage() {
         </p>
       </header>
 
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 text-sm text-slate-700 dark:text-slate-300 leading-relaxed shadow-xs">
+      <div className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 sm:p-8 space-y-6 text-sm text-slate-700 dark:text-slate-300 leading-relaxed shadow-xl">
         <section className="space-y-3">
           <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">Our Purpose</h2>
           <p>
-            <strong>VolumeCalcKit</strong> was engineered to provide instant, mathematically verified volume, capacity, and cubic measurement calculators without clutter, required accounts, or artificial paywalls.
+            <strong>VolumeCalcKit</strong> was designed to provide instant, accurate volume, capacity, and cubic measurement calculators without clutter, required accounts, or artificial paywalls.
           </p>
           <p>
-            Whether you are a student computing cylinder surface area, an exporter calculating container CBM, a homeowner ordering cubic yards of mulch, or an engineer checking pipe fluid capacity, our tools run locally in your browser with zero latency.
+            Whether you are a student computing cylinder surface area, an exporter calculating container CBM, a homeowner ordering cubic yards of mulch, or an engineer checking pipe fluid capacity, our tools run locally in your browser with instant calculations.
           </p>
         </section>
 
-        <section className="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <section className="space-y-3 pt-4 border-t border-slate-100 dark:border-navy-800">
           <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">Core Principles</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl space-y-1">
-              <Zap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <div className="p-3.5 bg-slate-50 dark:bg-navy-850 border border-slate-200 dark:border-navy-750 rounded-xl space-y-1">
+              <Zap className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
               <div className="font-bold text-slate-900 dark:text-slate-100">Instant Execution</div>
               <p className="text-slate-600 dark:text-slate-400">All calculations execute directly in your browser without backend delays.</p>
             </div>
 
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl space-y-1">
+            <div className="p-3.5 bg-slate-50 dark:bg-navy-850 border border-slate-200 dark:border-navy-750 rounded-xl space-y-1">
               <Shield className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <div className="font-bold text-slate-900 dark:text-slate-100">SI Mathematical Rigor</div>
               <p className="text-slate-600 dark:text-slate-400">Formulas use exact SI unit normalization and standard geometric constants.</p>
             </div>
 
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl space-y-1">
-              <Box className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+            <div className="p-3.5 bg-slate-50 dark:bg-navy-850 border border-slate-200 dark:border-navy-750 rounded-xl space-y-1">
+              <Box className="w-4 h-4 text-indigo-600 dark:text-cyan-400" />
               <div className="font-bold text-slate-900 dark:text-slate-100">No Account Required</div>
               <p className="text-slate-600 dark:text-slate-400">100% free with no sign-ups, no cookies, and no tracking of sensitive numbers.</p>
             </div>

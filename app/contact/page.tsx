@@ -32,10 +32,10 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Information Panel */}
         <aside className="lg:col-span-5 space-y-6">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 space-y-6 text-xs text-slate-700 dark:text-slate-300 shadow-xs">
+          <div className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 sm:p-7 space-y-6 text-xs text-slate-700 dark:text-slate-300 shadow-xl">
             <div className="space-y-3">
-              <h2 className="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider font-mono flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-2.5">
-                <HelpCircle className="w-4 h-4 text-blue-600 dark:text-blue-400" aria-hidden="true" />
+              <h2 className="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider font-mono flex items-center gap-2 border-b border-slate-100 dark:border-navy-800 pb-2.5">
+                <HelpCircle className="w-4 h-4 text-blue-600 dark:text-cyan-400" aria-hidden="true" />
                 <span>Contact Context</span>
               </h2>
               <p className="text-slate-600 dark:text-slate-400">
@@ -61,7 +61,7 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            <div className="p-4 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 rounded-xl space-y-2">
+            <div className="p-4 bg-slate-50 dark:bg-navy-850 border border-slate-200 dark:border-navy-750 rounded-2xl space-y-2">
               <div className="font-bold text-slate-900 dark:text-slate-100 uppercase font-mono text-[11px] tracking-wider">
                 Response Note
               </div>

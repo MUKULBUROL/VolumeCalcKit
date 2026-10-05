@@ -29,8 +29,8 @@ export default function HowToCalculateCbmPage() {
       </header>
 
       <article className="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 text-sm leading-relaxed space-y-8">
-        <section className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-2">
+        <section className="bg-white dark:bg-navy-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl space-y-3">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-navy-800 pb-2">
             1. What Does CBM Stand For?
           </h2>
           <p>
@@ -38,14 +38,14 @@ export default function HowToCalculateCbmPage() {
           </p>
         </section>
 
-        <section className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-2">
+        <section className="bg-white dark:bg-navy-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl space-y-3">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-navy-800 pb-2">
             2. The Step-by-Step CBM Formula
           </h2>
           <p>
             To compute CBM from measurements taken in centimeters (cm):
           </p>
-          <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg font-mono text-slate-900 dark:text-slate-100 font-bold text-xs sm:text-sm my-2">
+          <div className="bg-slate-100 dark:bg-navy-850 border border-slate-200 dark:border-navy-750 p-3.5 rounded-xl font-mono text-slate-900 dark:text-cyan-400 font-bold text-xs sm:text-sm my-2">
             CBM = [Length (cm) × Width (cm) × Height (cm) / 1,000,000] × Total Cartons
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -53,45 +53,43 @@ export default function HowToCalculateCbmPage() {
           </p>
         </section>
 
-        <section className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-2">
+        <section className="bg-white dark:bg-navy-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl space-y-4">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-navy-800 pb-2">
             3. CBM vs. Volumetric Weight (Air Freight)
           </h2>
           <p>
             Airlines and express couriers bill on <strong>Chargeable Weight</strong>, which is the greater of actual weight and dimensional weight. The standard air freight conversion is:
           </p>
-          <div className="bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/60 p-3 rounded-lg font-mono text-indigo-900 dark:text-indigo-200 text-xs">
-            1 CBM ≈ 167 kg (Air Freight, Divisor 6000)
-            <br />
-            1 CBM ≈ 200 kg (Express Courier DHL/FedEx, Divisor 5000)
-            <br />
-            1 CBM ≈ 1,000 kg (Ocean LCL Freight, 1 Ton Rule)
+          <div className="bg-slate-100 dark:bg-navy-850 border border-slate-200 dark:border-navy-750 p-3.5 rounded-xl font-mono text-slate-800 dark:text-slate-200 text-xs space-y-1">
+            <div>1 CBM ≈ 167 kg (Air Freight, Divisor 6000)</div>
+            <div>1 CBM ≈ 200 kg (Express Courier DHL/FedEx, Divisor 5000)</div>
+            <div>1 CBM ≈ 1,000 kg (Ocean LCL Freight, 1 Ton Rule)</div>
           </div>
         </section>
 
         {/* Links section */}
-        <section className="bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/60 rounded-xl p-6 space-y-4">
-          <h2 className="text-base font-bold text-indigo-950 dark:text-indigo-100">
-            Freight & Shipping Calculators
+        <section className="bg-blue-950/20 border border-blue-800/40 rounded-3xl p-6 sm:p-8 space-y-4">
+          <h2 className="text-base font-bold text-white">
+            Freight &amp; Shipping Calculators
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-semibold">
             <Link
               href="/cbm-calculator"
-              className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-indigo-200 dark:border-indigo-800/80 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="p-3.5 bg-white dark:bg-navy-900 rounded-xl border border-slate-200 dark:border-navy-750 text-blue-600 dark:text-cyan-400 hover:border-blue-400 dark:hover:border-cyan-400 flex items-center justify-between transition-colors shadow-2xs"
             >
               <span>CBM Calculator</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/volumetric-weight-calculator"
-              className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-indigo-200 dark:border-indigo-800/80 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="p-3.5 bg-white dark:bg-navy-900 rounded-xl border border-slate-200 dark:border-navy-750 text-blue-600 dark:text-cyan-400 hover:border-blue-400 dark:hover:border-cyan-400 flex items-center justify-between transition-colors shadow-2xs"
             >
               <span>Volumetric Weight</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/cubic-meter-calculator"
-              className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-indigo-200 dark:border-indigo-800/80 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="p-3.5 bg-white dark:bg-navy-900 rounded-xl border border-slate-200 dark:border-navy-750 text-blue-600 dark:text-cyan-400 hover:border-blue-400 dark:hover:border-cyan-400 flex items-center justify-between transition-colors shadow-2xs"
             >
               <span>Cubic Meter Tool</span>
               <ArrowRight className="w-3.5 h-3.5" />

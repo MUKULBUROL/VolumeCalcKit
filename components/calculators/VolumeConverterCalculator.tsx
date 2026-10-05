@@ -52,7 +52,7 @@ export const VolumeConverterCalculator: React.FC = () => {
   }, [result, valueStr, fromUnit]);
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-5 sm:p-7 space-y-6">
+    <div className="bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl p-5 sm:p-7 space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-end">
         {/* Value Input */}
         <div className="md:col-span-5 space-y-1.5">

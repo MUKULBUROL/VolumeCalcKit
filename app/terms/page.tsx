@@ -23,7 +23,7 @@ export default function TermsPage() {
         <p className="text-xs text-slate-500 dark:text-slate-400">Last updated: March 10, 2026</p>
       </header>
 
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 text-sm text-slate-700 dark:text-slate-300 leading-relaxed shadow-xs">
+      <div className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 sm:p-8 space-y-6 text-sm text-slate-700 dark:text-slate-300 leading-relaxed shadow-xl">
         <section className="space-y-2">
           <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">1. Educational & Informational Use</h2>
           <p>

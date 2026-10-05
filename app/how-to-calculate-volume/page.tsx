@@ -30,8 +30,8 @@ export default function HowToCalculateVolumePage() {
 
       <article className="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 text-sm leading-relaxed space-y-8">
         {/* Section 1 */}
-        <section className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-2">
+        <section className="bg-white dark:bg-navy-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl space-y-3">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-navy-800 pb-2">
             1. What is Volume?
           </h2>
           <p>
@@ -40,8 +40,8 @@ export default function HowToCalculateVolumePage() {
         </section>
 
         {/* Section 2 */}
-        <section className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-2">
+        <section className="bg-white dark:bg-navy-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl space-y-4">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-navy-800 pb-2">
             2. The Four Fundamental Volume Rules
           </h2>
           
@@ -85,9 +85,9 @@ export default function HowToCalculateVolumePage() {
         </section>
 
         {/* Section 3 */}
-        <section className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
-            <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+        <section className="bg-white dark:bg-navy-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl space-y-3">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-navy-800 pb-2 flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5 text-amber-500" />
             <span>3. Common Volume Calculation Mistakes</span>
           </h2>
           <ul className="list-disc pl-5 space-y-2 text-xs text-slate-600 dark:text-slate-400">
@@ -104,35 +104,35 @@ export default function HowToCalculateVolumePage() {
         </section>
 
         {/* Section 4: Interactive Tools Hub */}
-        <section className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/60 rounded-xl p-6 space-y-4">
-          <h2 className="text-base font-bold text-blue-900 dark:text-blue-200">
+        <section className="bg-blue-950/20 border border-blue-800/40 rounded-3xl p-6 sm:p-8 space-y-4">
+          <h2 className="text-base font-bold text-white">
             Explore Dedicated Volume Calculators
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-semibold">
             <Link
               href="/volume-calculator"
-              className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-blue-200 dark:border-blue-800/80 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-slate-800 hover:border-blue-300 dark:hover:border-blue-700 flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="p-3.5 bg-white dark:bg-navy-900 rounded-xl border border-slate-200 dark:border-navy-750 text-blue-600 dark:text-cyan-400 hover:border-blue-400 dark:hover:border-cyan-400 flex items-center justify-between transition-colors shadow-2xs"
             >
               <span>Universal Volume Calculator</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/cylinder-volume-calculator"
-              className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-blue-200 dark:border-blue-800/80 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-slate-800 hover:border-blue-300 dark:hover:border-blue-700 flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="p-3.5 bg-white dark:bg-navy-900 rounded-xl border border-slate-200 dark:border-navy-750 text-blue-600 dark:text-cyan-400 hover:border-blue-400 dark:hover:border-cyan-400 flex items-center justify-between transition-colors shadow-2xs"
             >
               <span>Cylinder Volume Calculator</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/cbm-calculator"
-              className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-blue-200 dark:border-blue-800/80 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-slate-800 hover:border-blue-300 dark:hover:border-blue-700 flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="p-3.5 bg-white dark:bg-navy-900 rounded-xl border border-slate-200 dark:border-navy-750 text-blue-600 dark:text-cyan-400 hover:border-blue-400 dark:hover:border-cyan-400 flex items-center justify-between transition-colors shadow-2xs"
             >
               <span>CBM Shipping Calculator</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/tank-volume-calculator"
-              className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-blue-200 dark:border-blue-800/80 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-slate-800 hover:border-blue-300 dark:hover:border-blue-700 flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="p-3.5 bg-white dark:bg-navy-900 rounded-xl border border-slate-200 dark:border-navy-750 text-blue-600 dark:text-cyan-400 hover:border-blue-400 dark:hover:border-cyan-400 flex items-center justify-between transition-colors shadow-2xs"
             >
               <span>Tank Volume Calculator</span>
               <ArrowRight className="w-3.5 h-3.5" />

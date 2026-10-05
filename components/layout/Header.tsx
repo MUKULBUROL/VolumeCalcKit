@@ -13,8 +13,10 @@ import {
   Layers,
   HelpCircle,
   ArrowRightLeft,
+  Mail,
   Sun,
   Moon,
+  Sparkles,
 } from "lucide-react";
 import { CALCULATORS_REGISTRY } from "@/lib/constants/registry";
 
@@ -100,7 +102,7 @@ export const Header: React.FC = () => {
       );
     } else if (e.key === "Enter") {
       e.preventDefault();
-      if (selectedIndex >= 0 && filteredCalculators[selectedIndex]) {
+      if (selectedIndex >= 0 && selectedIndex < filteredCalculators.length) {
         handleSelectResult(filteredCalculators[selectedIndex].slug);
       } else if (filteredCalculators.length > 0) {
         handleSelectResult(filteredCalculators[0].slug);
@@ -127,77 +129,83 @@ export const Header: React.FC = () => {
   };
 
   const navLinks = [
-    { href: "/calculators", label: "All Calculators", icon: Calculator },
+    { href: "/calculators", label: "Calculators", icon: Calculator },
     { href: "/volume-converter", label: "Converters", icon: ArrowRightLeft },
     { href: "/volume-formulas", label: "Formulas", icon: Layers },
     { href: "/how-to-calculate-volume", label: "Guides", icon: HelpCircle },
+    { href: "/contact", label: "Contact", icon: Mail },
   ];
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/90 dark:border-slate-800 shadow-2xs transition-colors duration-150">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+      <header className="sticky top-0 z-40 bg-white/90 dark:bg-navy-950/90 backdrop-blur-md border-b border-slate-200 dark:border-navy-750 transition-colors duration-150">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
           {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-2.5 font-bold text-slate-900 dark:text-white tracking-tight hover:opacity-95 transition-opacity flex-shrink-0 group focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none rounded-lg p-0.5"
           >
-            <div className="w-8 h-8 rounded-lg bg-slate-950 dark:bg-slate-900 text-white flex items-center justify-center font-mono font-black text-sm shadow-sm border border-slate-800 dark:border-slate-700 group-hover:border-blue-500 transition-colors">
-              <Box className="w-4 h-4 text-emerald-400 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true" />
+            <div className="w-8 h-8 rounded-lg bg-navy-900 border border-blue-500/50 flex items-center justify-center font-mono font-black text-sm shadow-sm group-hover:border-cyan-400 transition-colors">
+              <Box className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform duration-200" aria-hidden="true" />
             </div>
             <div className="flex flex-col">
               <span className="text-base leading-tight font-black text-slate-950 dark:text-white tracking-tight">
-                VolumeCalc<span className="text-blue-600 dark:text-blue-400">Kit</span>
-              </span>
-              <span className="text-[10px] leading-none text-slate-500 dark:text-slate-400 font-semibold tracking-wide">
-                Volume & Capacity Calculators
+                VolumeCalc<span className="text-blue-500">Kit</span>
               </span>
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-1 text-xs font-bold tracking-tight">
+          {/* Desktop Nav Items */}
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-1 text-xs font-semibold">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
-              const Icon = link.icon;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none ${
+                  className={`px-3 py-1.5 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none ${
                     isActive
-                      ? "bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-bold"
-                      : "text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60"
+                      ? "bg-blue-50 dark:bg-navy-800 text-blue-600 dark:text-cyan-400 font-bold"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-navy-850"
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" aria-hidden="true" />
                   <span>{link.label}</span>
                 </Link>
               );
             })}
           </nav>
 
-          {/* Controls: Search + Dark Mode + Mobile Toggle */}
-          <div className="flex items-center gap-2">
+          {/* Controls: Search + Custom Calculator CTA + Theme Toggle + Mobile Menu */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            {/* Search Trigger */}
             <button
               onClick={() => setSearchOpen(true)}
               aria-haspopup="dialog"
               aria-expanded={searchOpen}
-              className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200/80 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700 rounded-lg transition-all shadow-2xs group cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none active:scale-[0.98]"
+              className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-navy-850 hover:bg-slate-200 dark:hover:bg-navy-800 border border-slate-200 dark:border-navy-700 rounded-lg transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none active:scale-[0.98]"
               aria-label="Search calculators"
             >
-              <Search className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" aria-hidden="true" />
-              <span className="hidden sm:inline">Search calculators…</span>
-              <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded text-slate-600 dark:text-slate-400 shadow-2xs">
-                ⌘&nbsp;K
+              <Search className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400" aria-hidden="true" />
+              <span className="hidden md:inline">Search...</span>
+              <kbd className="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-navy-900 border border-slate-300 dark:border-navy-700 rounded text-slate-500 dark:text-slate-400">
+                Ctrl K
               </kbd>
             </button>
+
+            {/* Primary CTA: Custom Calculator */}
+            <Link
+              href="/custom-calculator"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-lg transition-all shadow-sm active:scale-95 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:outline-none"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-cyan-200" />
+              <span>Custom Calculator</span>
+            </Link>
 
             {/* Dark Mode Toggle */}
             <button
               type="button"
               onClick={toggleTheme}
-              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200/80 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700 rounded-lg transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none active:scale-[0.95]"
+              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-navy-850 hover:bg-slate-200 dark:hover:bg-navy-800 border border-slate-200 dark:border-navy-700 rounded-lg transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none active:scale-[0.95]"
               title={isDark ? "Switch to light mode" : "Switch to dark mode"}
               aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
@@ -208,12 +216,12 @@ export const Header: React.FC = () => {
               )}
             </button>
 
-            {/* Mobile Hamburger */}
+            {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg md:hidden cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none active:scale-[0.98]"
+              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-navy-850 rounded-lg lg:hidden cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none active:scale-[0.98]"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
             </button>
@@ -222,7 +230,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-5 space-y-2 animate-in slide-in-from-top-2 duration-150 shadow-xl">
+          <div className="lg:hidden border-t border-slate-200 dark:border-navy-750 bg-white dark:bg-navy-950 px-4 pt-3 pb-5 space-y-3 shadow-2xl">
             <div className="grid grid-cols-2 gap-2 text-xs font-bold">
               {navLinks.map((link) => {
                 const Icon = link.icon;
@@ -231,7 +239,7 @@ export const Header: React.FC = () => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 bg-slate-50 dark:bg-slate-800/80 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-700 dark:hover:text-blue-400 rounded-xl text-slate-800 dark:text-slate-200 flex items-center justify-between border border-slate-200/60 dark:border-slate-700/60 transition-colors focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none"
+                    className="p-3 bg-slate-50 dark:bg-navy-900 hover:bg-blue-50 dark:hover:bg-navy-850 hover:text-blue-600 dark:hover:text-cyan-400 rounded-xl text-slate-800 dark:text-slate-200 flex items-center justify-between border border-slate-200/80 dark:border-navy-800 transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       <Icon className="w-4 h-4 text-slate-400 dark:text-slate-500" aria-hidden="true" />
@@ -242,6 +250,18 @@ export const Header: React.FC = () => {
                 );
               })}
             </div>
+
+            <div className="pt-2">
+              <Link
+                href="/custom-calculator"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 p-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition-all shadow-md"
+              >
+                <Sparkles className="w-4 h-4 text-cyan-200" />
+                <span>Custom Calculator Services</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         )}
       </header>
@@ -251,101 +271,119 @@ export const Header: React.FC = () => {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="Calculator Quick Search"
-          className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/60 backdrop-blur-xs animate-in fade-in duration-150"
+          aria-label="Search all calculators"
+          className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-150"
+          onClick={() => setSearchOpen(false)}
         >
           <div
-            className="fixed inset-0"
-            onClick={() => setSearchOpen(false)}
-            aria-hidden="true"
-          />
-          <div className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden z-10 animate-in zoom-in-95 duration-150">
-            <div className="flex items-center px-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
-              <Search className="w-4 h-4 text-slate-400 dark:text-slate-500 mr-2.5 flex-shrink-0" aria-hidden="true" />
+            className="w-full max-w-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-700 rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Search Input Bar */}
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-navy-750 bg-slate-50/50 dark:bg-navy-950/50">
+              <Search className="w-5 h-5 text-slate-400 dark:text-slate-400 flex-shrink-0" aria-hidden="true" />
               <input
                 ref={searchInputRef}
                 type="search"
-                name="quick-search"
-                autoComplete="off"
-                spellCheck={false}
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setSelectedIndex(0);
+                }}
                 onKeyDown={handleSearchKeyDown}
-                placeholder="Search shape, formula, or keyword (e.g., cylinder, cbm, tank)…"
-                className="w-full py-3.5 bg-transparent text-sm font-medium text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
+                placeholder="Search calculators... e.g. CBM, cylinder, tank, pipe, ft³ to m³"
+                className="w-full bg-transparent text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none"
+                aria-autocomplete="list"
+                aria-controls="search-results-list"
               />
               <button
+                type="button"
                 onClick={() => setSearchOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-md focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none"
+                className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-200/50 dark:hover:bg-navy-800 transition-colors"
                 aria-label="Close search"
               >
-                <X className="w-4 h-4" aria-hidden="true" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="max-h-80 overflow-y-auto p-2" aria-live="polite">
+            {/* Results List */}
+            <div
+              id="search-results-list"
+              ref={resultsListRef}
+              role="listbox"
+              className="max-h-[60vh] overflow-y-auto p-2 divide-y divide-slate-100 dark:divide-navy-800"
+            >
               {searchQuery.trim() === "" ? (
-                <div className="p-4 text-xs text-slate-500 dark:text-slate-400">
-                  <p className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-[10px] mb-2.5">
-                    Popular Fast Links:
+                <div className="p-4 text-center">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
+                    Popular shortcuts
                   </p>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap items-center justify-center gap-2">
                     {[
-                      "Cylinder",
-                      "CBM Calculator",
-                      "Tank Volume",
-                      "Cubic Feet",
-                      "Pipe Volume",
-                      "Sphere",
-                      "Volumetric Weight",
-                    ].map((term) => (
+                      { label: "CBM Calculator", slug: "cbm-calculator" },
+                      { label: "CFT to CBM", slug: "cft-to-cbm-calculator" },
+                      { label: "Tank Volume", slug: "tank-volume-calculator" },
+                      { label: "Cylinder", slug: "cylinder-volume-calculator" },
+                      { label: "Pipe Volume", slug: "pipe-volume-calculator" },
+                    ].map((item) => (
                       <button
-                        key={term}
-                        type="button"
-                        onClick={() => setSearchQuery(term)}
-                        className="px-2.5 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/60 hover:text-blue-700 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold transition-colors cursor-pointer border border-slate-200/60 dark:border-slate-700 focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none"
+                        key={item.slug}
+                        onClick={() => handleSelectResult(item.slug)}
+                        className="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-navy-800 hover:bg-blue-50 dark:hover:bg-navy-750 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 border border-slate-200 dark:border-navy-700 transition-colors"
                       >
-                        {term}
+                        {item.label}
                       </button>
                     ))}
                   </div>
                 </div>
-              ) : filteredCalculators.length > 0 ? (
-                <div ref={resultsListRef} className="space-y-1">
-                  {filteredCalculators.map((calc, idx) => {
-                    const isSelected = selectedIndex === idx;
-                    return (
-                      <button
-                        key={calc.slug}
-                        type="button"
-                        onClick={() => handleSelectResult(calc.slug)}
-                        onMouseEnter={() => setSelectedIndex(idx)}
-                        className={`w-full text-left p-3 rounded-xl flex items-center justify-between group transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none ${
-                          isSelected
-                            ? "bg-blue-50 dark:bg-blue-950/80 text-blue-900 dark:text-blue-100"
-                            : "hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-900 dark:text-slate-100"
-                        }`}
-                      >
-                        <div>
-                          <div className={`text-sm font-bold ${isSelected ? "text-blue-700 dark:text-blue-400" : "text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400"}`}>
-                            {calc.h1}
-                          </div>
-                          <div className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
-                            {calc.shortDescription}
-                          </div>
-                        </div>
-                        <span className="text-[10px] font-mono uppercase bg-slate-100 dark:bg-slate-800 group-hover:bg-blue-100 dark:group-hover:bg-blue-900 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-md ml-2 flex-shrink-0 font-bold">
-                          {calc.category}
-                        </span>
-                      </button>
-                    );
-                  })}
+              ) : filteredCalculators.length === 0 ? (
+                <div className="p-8 text-center text-sm text-slate-500 dark:text-slate-400">
+                  No calculators found matching &ldquo;<span className="font-semibold text-slate-800 dark:text-slate-200">{searchQuery}</span>&rdquo;
                 </div>
               ) : (
-                <div className="p-8 text-center text-xs text-slate-500 dark:text-slate-400">
-                  No calculators found matching &ldquo;{searchQuery}&rdquo;.
-                </div>
+                filteredCalculators.map((calc, idx) => {
+                  const isSelected = idx === selectedIndex;
+                  return (
+                    <div
+                      key={calc.slug}
+                      role="option"
+                      aria-selected={isSelected}
+                      onClick={() => handleSelectResult(calc.slug)}
+                      onMouseEnter={() => setSelectedIndex(idx)}
+                      className={`p-3 rounded-xl cursor-pointer flex items-center justify-between transition-colors ${
+                        isSelected
+                          ? "bg-blue-50 dark:bg-navy-800 text-blue-900 dark:text-white"
+                          : "hover:bg-slate-50 dark:hover:bg-navy-850 text-slate-900 dark:text-slate-200"
+                      }`}
+                    >
+                      <div className="space-y-0.5 pr-2">
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-sm">{calc.h1}</span>
+                          <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-slate-100 dark:bg-navy-750 text-slate-500 dark:text-slate-400">
+                            {calc.category}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
+                          {calc.shortDescription}
+                        </p>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500 flex-shrink-0" />
+                    </div>
+                  );
+                })
               )}
+            </div>
+
+            {/* Footer with Hint */}
+            <div className="px-4 py-2 bg-slate-50 dark:bg-navy-950 border-t border-slate-200 dark:border-navy-800 flex items-center justify-between text-[11px] text-slate-400">
+              <span className="flex items-center gap-2">
+                <kbd className="px-1 py-0.5 rounded bg-white dark:bg-navy-900 border border-slate-300 dark:border-navy-700">↑</kbd>
+                <kbd className="px-1 py-0.5 rounded bg-white dark:bg-navy-900 border border-slate-300 dark:border-navy-700">↓</kbd>
+                <span>to navigate</span>
+                <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-navy-900 border border-slate-300 dark:border-navy-700 ml-1">↵</kbd>
+                <span>to select</span>
+              </span>
+              <span>ESC to close</span>
             </div>
           </div>
         </div>
@@ -353,4 +391,3 @@ export const Header: React.FC = () => {
     </>
   );
 };
-

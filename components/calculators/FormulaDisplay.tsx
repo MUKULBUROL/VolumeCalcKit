@@ -14,18 +14,18 @@ export const FormulaDisplay: React.FC<FormulaDisplayProps> = ({
   steps = [],
 }) => {
   return (
-    <div className="mt-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 sm:p-6 space-y-5 shadow-2xs">
-      <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center justify-between">
+    <div className="mt-6 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 p-5 sm:p-6 space-y-5 shadow-2xs">
+      <div className="border-b border-slate-100 dark:border-navy-800 pb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="p-1 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
+          <div className="p-1 rounded-md bg-blue-50 dark:bg-navy-850 text-blue-600 dark:text-cyan-400">
             <Sigma className="w-4 h-4" />
           </div>
           <h3 className="text-xs font-bold uppercase font-mono tracking-wider text-slate-800 dark:text-slate-200">
             {formulaTitle}
           </h3>
         </div>
-        <span className="text-[10px] font-mono font-semibold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded-full">
-          SI Normalized Math
+        <span className="text-[10px] font-mono font-semibold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-navy-800 border border-slate-200 dark:border-navy-750 px-2.5 py-0.5 rounded-full">
+          SI Standard Math
         </span>
       </div>
 
@@ -34,7 +34,7 @@ export const FormulaDisplay: React.FC<FormulaDisplayProps> = ({
         <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
           General Formula:
         </div>
-        <div className="bg-slate-900 dark:bg-slate-950 border border-slate-800 text-emerald-400 rounded-xl p-4 font-mono text-sm sm:text-base font-bold overflow-x-auto shadow-inner">
+        <div className="bg-navy-950 border border-navy-750 text-cyan-400 rounded-xl p-4 font-mono text-sm sm:text-base font-bold overflow-x-auto shadow-inner">
           <code>{generalFormula}</code>
         </div>
       </div>

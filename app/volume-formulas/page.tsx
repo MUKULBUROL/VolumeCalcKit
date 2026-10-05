@@ -94,29 +94,29 @@ export default function VolumeFormulasPage() {
         {formulas.map((item, idx) => (
           <div
             key={idx}
-            className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-2xs hover:shadow-md hover:border-blue-300 dark:hover:border-blue-700 transition-all group"
+            className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-750 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-xl hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all group"
           >
             <div>
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
-                  <h2 className="text-lg font-bold text-slate-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h2 className="text-lg font-bold text-slate-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">
                     {item.name}
                   </h2>
                   <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">3D Geometry</span>
                 </div>
-                <div className="w-20 h-20 flex-shrink-0 bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-xl p-1.5 flex items-center justify-center">
+                <div className="w-20 h-20 flex-shrink-0 bg-slate-50 dark:bg-navy-950 border border-slate-100 dark:border-navy-800 rounded-2xl p-1.5 flex items-center justify-center">
                   <DiagramSVG type={item.diagram} className="w-full h-full" />
                 </div>
               </div>
 
               <div className="space-y-2.5 font-mono text-xs">
-                <div className="bg-slate-900 dark:bg-slate-950 text-emerald-400 p-3 rounded-xl border border-slate-800 shadow-inner">
+                <div className="bg-navy-950 text-cyan-400 p-3 rounded-xl border border-navy-750 shadow-inner">
                   <span className="text-slate-400 font-sans block text-[10px] uppercase font-bold tracking-wider mb-0.5">
                     Volume Formula:
                   </span>
                   <span className="font-bold text-sm sm:text-base">{item.formula}</span>
                 </div>
-                <div className="bg-slate-50 dark:bg-slate-800/50 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
+                <div className="bg-slate-50 dark:bg-navy-850 p-2.5 rounded-xl border border-slate-200/80 dark:border-navy-800">
                   <span className="text-slate-500 dark:text-slate-400 font-sans block text-[10px] uppercase font-bold tracking-wider mb-0.5">
                     Surface Area:
                   </span>

@@ -21,6 +21,7 @@ const routes = [
   "/about",
   "/methodology",
   "/contact",
+  "/custom-calculator",
   "/privacy",
   "/terms",
   "/robots.txt",

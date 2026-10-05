@@ -44,7 +44,7 @@ export default function VolumeConverterPage() {
             </ol>
           </>
         ),
-        formulaTitle: "Exact Volume Conversion Mathematical Factors (NIST / ISO Standard)",
+        formulaTitle: "Exact Volume Conversion Mathematical Factors (Standard Constants)",
         formulaContent: (
           <div className="space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">

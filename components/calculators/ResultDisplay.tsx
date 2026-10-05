@@ -63,15 +63,15 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
   return (
     <div
       aria-label={title}
-      className="mt-6 rounded-2xl bg-slate-950 text-white p-5 sm:p-6 shadow-xl border border-slate-800 space-y-5 relative overflow-hidden"
+      className="mt-6 rounded-2xl bg-navy-950 text-white p-5 sm:p-6 shadow-xl border border-navy-750 space-y-5 relative overflow-hidden"
     >
       {/* Subtle background glow */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
       {/* Header with Title & Action controls */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3.5 relative z-10">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-navy-750 pb-3.5 relative z-10">
         <div className="flex items-center gap-2 min-w-0">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" aria-hidden="true" />
+          <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse flex-shrink-0" aria-hidden="true" />
           <span className="text-xs uppercase tracking-wider text-slate-300 font-mono font-bold truncate">
             {title}
           </span>
@@ -79,7 +79,7 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
 
         <div className="flex items-center gap-2 flex-shrink-0">
           {/* Precision Selector */}
-          <div className="flex items-center gap-1.5 text-xs text-slate-400 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">
+          <div className="flex items-center gap-1.5 text-xs text-slate-400 bg-navy-900 border border-navy-750 px-2.5 py-1 rounded-lg">
             <span className="text-[11px] text-slate-400 select-none">Decimals:</span>
             <div className="flex items-center gap-1" role="group" aria-label="Decimal precision">
               {([2, 3, 4, 6] as PrecisionOption[]).map((p) => (
@@ -91,7 +91,7 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
                   className={`px-1.5 py-0.5 rounded text-[11px] font-mono font-bold transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none cursor-pointer ${
                     precision === p
                       ? "bg-blue-600 text-white"
-                      : "text-slate-400 hover:text-white hover:bg-slate-800"
+                      : "text-slate-400 hover:text-white hover:bg-navy-800"
                   }`}
                   aria-label={`${p} decimal places`}
                 >
@@ -105,7 +105,7 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
           <button
             type="button"
             onClick={onReset}
-            className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 bg-slate-900 border border-slate-800 rounded-lg transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none active:scale-[0.95]"
+            className="p-1.5 text-slate-400 hover:text-white hover:bg-navy-800 bg-navy-900 border border-navy-750 rounded-lg transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none active:scale-[0.95]"
             title="Reset to defaults"
             aria-label="Reset calculator inputs to default values"
           >
@@ -116,18 +116,18 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
 
       {/* Primary Hero Result Box */}
       <div
-        className="bg-slate-900/90 rounded-xl p-4 sm:p-5 border border-slate-800 relative z-10 shadow-inner min-w-0 overflow-hidden"
+        className="bg-navy-900/90 rounded-xl p-4 sm:p-5 border border-navy-750 relative z-10 shadow-inner min-w-0 overflow-hidden"
         aria-live="polite"
         aria-atomic="true"
       >
         <div className="text-xs text-slate-400 font-medium mb-1.5 flex items-center justify-between">
           <span className="truncate pr-2">{primaryLabel}</span>
-          <span className="text-[10px] font-mono uppercase bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 px-2 py-0.5 rounded flex-shrink-0">
+          <span className="text-[10px] font-mono uppercase bg-blue-950/80 text-cyan-400 border border-blue-800/60 px-2 py-0.5 rounded flex-shrink-0">
             Live Output
           </span>
         </div>
         <div className="flex items-baseline flex-wrap gap-2.5 min-w-0 max-w-full">
-          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-mono tracking-tight text-emerald-400 tabular-nums break-words break-all max-w-full leading-tight">
+          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-mono tracking-tight text-cyan-400 tabular-nums break-words break-all max-w-full leading-tight">
             {primaryValue}
           </span>
           {primaryUnit && (

@@ -84,7 +84,7 @@ export const PipeVolumeCalculator: React.FC = () => {
   }, [result]);
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-4 sm:p-6 space-y-6">
+    <div className="bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl p-5 sm:p-7 space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         <div className="lg:col-span-7 space-y-4">
           <NumberInput<LengthUnit>
@@ -117,12 +117,12 @@ export const PipeVolumeCalculator: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-5 bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 rounded-xl p-4 flex flex-col items-center justify-center min-h-[190px]">
-          <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-2">
+        <div className="lg:col-span-5 bg-slate-50 dark:bg-navy-950 border border-slate-200/80 dark:border-navy-800 rounded-2xl p-5 flex flex-col items-center justify-center min-h-[190px]">
+          <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-2 font-semibold">
             Pipe Cross-Section Diagram
           </span>
           <DiagramSVG type="pipe" className="w-44 h-auto" />
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 text-center mt-2">
+          <p className="text-[11px] text-slate-500 dark:text-slate-400 text-center mt-2 font-mono">
             V = π × (ID / 2)² × Length
           </p>
         </div>

@@ -24,6 +24,21 @@ const config: Config = {
           900: "#0c3f6e",
           950: "#082849",
         },
+        navy: {
+          950: "#060a12", // deepest canvas background
+          900: "#0b1120", // hero/section background
+          850: "#0d1527", // card / surface background
+          800: "#111c38", // elevated card / input background
+          750: "#162347", // active / hover card
+          700: "#1e2f5b", // subtle borders
+          600: "#253b70",
+        },
+        electric: {
+          400: "#38bdf8",
+          500: "#2563eb",
+          600: "#1d4ed8",
+          glow: "rgba(37, 99, 235, 0.25)",
+        },
       },
       fontFamily: {
         sans: [

@@ -172,7 +172,7 @@ export const UniversalVolumeCalculator: React.FC = () => {
   }, [result, shape, outputVolumeUnit]);
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-5 sm:p-7 space-y-6">
+    <div className="bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-750 shadow-xl p-5 sm:p-7 space-y-6">
       {/* Shape Selector Bar */}
       <div>
         <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 block mb-2 select-none">

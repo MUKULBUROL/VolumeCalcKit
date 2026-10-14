@@ -9,8 +9,32 @@ export const metadata: Metadata = {
   title: "Volume Formulas Handbook – Complete 3D Geometric Formulas Reference",
   description:
     "Comprehensive guide and formula reference for calculating the volume, surface area, and capacity of cubes, prisms, cylinders, spheres, cones, tanks, and pipes.",
+  keywords: [
+    "volume formulas",
+    "3d shape volume equations",
+    "surface area formulas",
+    "cylinder volume formula",
+    "sphere volume formula",
+    "cone volume formula",
+    "geometry formula sheet",
+    "how to calculate volume",
+  ],
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/volume-formulas`,
+  },
+  openGraph: {
+    title: "Volume Formulas Handbook – Complete 3D Geometric Formulas Reference | VolumeCalcKit",
+    description:
+      "Comprehensive guide and formula reference for calculating the volume, surface area, and capacity of cubes, prisms, cylinders, spheres, cones, tanks, and pipes.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/volume-formulas`,
+    siteName: "VolumeCalcKit",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Volume Formulas Handbook – Complete 3D Geometric Formulas Reference | VolumeCalcKit",
+    description:
+      "Comprehensive guide and formula reference for calculating the volume, surface area, and capacity of cubes, prisms, cylinders, spheres, cones, tanks, and pipes.",
   },
 };
 

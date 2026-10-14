@@ -17,11 +17,32 @@ import {
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Custom Calculator Development Services | VolumeCalcKit",
+  title: "Custom Calculator Development Services",
   description:
     "We build custom branded volume, capacity, and CBM calculators tailored for your logistics, engineering, or ecommerce website. Fast turnaround and embed-ready.",
+  keywords: [
+    "custom calculator development",
+    "embeddable volume calculator",
+    "cbm widget for ecommerce",
+    "bespoke engineering calculators",
+    "shopify freight calculator widget",
+  ],
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/custom-calculator`,
+  },
+  openGraph: {
+    title: "Custom Calculator Development Services | VolumeCalcKit",
+    description:
+      "We build custom branded volume, capacity, and CBM calculators tailored for your logistics, engineering, or ecommerce website. Fast turnaround and embed-ready.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/custom-calculator`,
+    siteName: "VolumeCalcKit",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom Calculator Development Services | VolumeCalcKit",
+    description:
+      "We build custom branded volume, capacity, and CBM calculators tailored for your logistics, engineering, or ecommerce website. Fast turnaround and embed-ready.",
   },
 };
 

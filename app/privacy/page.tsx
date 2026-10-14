@@ -39,10 +39,21 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">3. Cookies & Advertising</h2>
+          <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">3. Cookies &amp; Advertising Partners (Google AdSense)</h2>
           <p>
-            VolumeCalcKit does not require user accounts or store personal session cookies. Third-party advertising partners (if enabled in the future) may use cookies to serve non-personalized or contextual advertisements in compliance with standard privacy laws (GDPR/CCPA).
+            VolumeCalcKit does not require user accounts or store personal session databases. To support free access to our calculation tools, we partner with third-party advertising vendors, including Google.
           </p>
+          <ul className="list-disc pl-5 space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
+            <li>
+              Third-party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to this website or other websites on the Internet.
+            </li>
+            <li>
+              Google&apos;s use of advertising cookies enables it and its partners to serve relevant advertisements to users based on their visit to VolumeCalcKit and/or other sites on the web.
+            </li>
+            <li>
+              Users may opt out of personalized advertising at any time by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-cyan-400 underline">Google Ads Settings</a>. Alternatively, users can opt out of third-party vendors&apos; use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-cyan-400 underline">aboutads.info</a>.
+            </li>
+          </ul>
         </section>
 
         <section className="space-y-2">

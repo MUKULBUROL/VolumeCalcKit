@@ -3,7 +3,7 @@ import { CalculatorMeta } from "@/types/calculator";
 export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   {
     slug: "volume-calculator",
-    title: "Volume Calculator – Calculate 3D Shape Volume",
+    title: "Volume Calculator (Instant m³, L & Gal) – All 3D Shapes",
     h1: "Volume Calculator",
     shortDescription:
       "Calculate the volume of any 3D shape including cylinders, pipes, boxes, cubes, spheres, and cones with instant unit conversions.",
@@ -36,7 +36,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "cbm-calculator",
-    title: "CBM Calculator – Calculate Cubic Meters (m³) & Shipping CBM",
+    title: "CBM Calculator for Shipping (m³) – CM, Inches, MM & Cartons",
     h1: "CBM Calculator",
     shortDescription:
       "Calculate shipment CBM from carton length, width, height and quantity. Enter dimensions in cm, mm, meters, inches or feet and get total cubic meters and cubic feet instantly.",
@@ -69,7 +69,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "cft-to-cbm-calculator",
-    title: "CFT to CBM Calculator – Cubic Feet to Cubic Meters",
+    title: "CFT to CBM Calculator [Exact Formula] – Cubic Feet to Cubic Meters",
     h1: "CFT to CBM Calculator",
     shortDescription:
       "Convert cubic feet (CFT) to cubic meters (CBM) or CBM to CFT instantly with standard SI conversion factors.",
@@ -96,7 +96,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "container-cbm-calculator",
-    title: "Container CBM Calculator – 20ft, 40ft & 40HC",
+    title: "Container CBM Calculator [20ft, 40ft & 40HC] – Cargo Fit Estimator",
     h1: "Container CBM Calculator",
     shortDescription:
       "Calculate cargo CBM and estimate container capacity requirements for 20ft, 40ft, and 40ft High Cube containers.",
@@ -123,7 +123,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "tank-volume-calculator",
-    title: "Tank Volume Calculator – Litres, Gallons & Partial Fill",
+    title: "Tank Volume Calculator (Litres & Gallons) – Dip Depth & Partial Fill",
     h1: "Tank Volume Calculator",
     shortDescription:
       "Calculate water tank volume and liquid capacity in litres, gallons and cubic meters for rectangular, vertical cylindrical and horizontal tanks.",
@@ -153,7 +153,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "cylinder-volume-calculator",
-    title: "Cylinder Volume Calculator – Radius, Diameter & Litres",
+    title: "Cylinder Volume Calculator (Instant m³, L & Gal) – Radius & Diameter",
     h1: "Cylinder Volume Calculator",
     shortDescription:
       "Calculate cylinder volume from radius or diameter and height. Get results in cubic units, litres, gallons, cubic feet and cubic meters.",
@@ -184,7 +184,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "pipe-volume-calculator",
-    title: "Pipe Volume Calculator – Water Capacity in Litres & Gallons",
+    title: "Pipe Volume Calculator [Gallons & Litres] – Schedule 40 Chart",
     h1: "Pipe Volume Calculator",
     shortDescription:
       "Calculate pipe internal volume, fluid capacity in litres and gallons, volume per foot/meter, and water weight from inside diameter.",
@@ -218,7 +218,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "aquarium-volume-calculator",
-    title: "Aquarium Volume Calculator – Litres & Gallons",
+    title: "Aquarium Volume Calculator [Litres & Gallons] – Fish Tank Capacity",
     h1: "Aquarium Volume Calculator",
     shortDescription:
       "Calculate aquarium water volume in litres, US gallons and Imperial gallons from tank dimensions. Estimate gross and usable fish tank capacity.",
@@ -246,7 +246,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "cubic-feet-calculator",
-    title: "Cubic Feet Calculator (cu ft) – Volume & Cost Estimator",
+    title: "Cubic Feet Calculator (cu ft) – In, Ft & Yards Volume Estimator",
     h1: "Cubic Feet Calculator",
     shortDescription:
       "Calculate volume in cubic feet (ft³) from inches, feet, yards, or metric dimensions with optional material pricing estimation.",
@@ -273,7 +273,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "cubic-meter-calculator",
-    title: "Cubic Meter Calculator (m³) – Cubic Metre Calculator & Volume",
+    title: "Cubic Metre Calculator (m³) – Cubic Meter Volume & Litres Converter",
     h1: "Cubic Meter & Cubic Metre Calculator",
     shortDescription:
       "Calculate volume in cubic meters (m³) and cubic metres from mm, cm, meters, inches, or feet with instant conversions to litres, gallons, and cubic feet.",
@@ -306,7 +306,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "cubic-yard-calculator",
-    title: "Cubic Yard Calculator (yd³) – Soil, Concrete, Mulch & Gravel",
+    title: "Cubic Yard Calculator (yd³) – Concrete, Dirt, Mulch & Soil",
     h1: "Cubic Yard Calculator",
     shortDescription:
       "Calculate cubic yards (yd³) from length, width, and depth in feet, inches, or meters. Includes material pricing estimation.",
@@ -332,7 +332,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "volumetric-weight-calculator",
-    title: "Volumetric Weight Calculator – Dimensional Weight for Air & Courier",
+    title: "Volumetric Weight Calculator [Air & Courier] – 5000 & 6000 Divisors",
     h1: "Volumetric Weight Calculator",
     shortDescription:
       "Calculate dimensional weight and chargeable shipping weight using standard 5000, 6000, or custom courier divisors.",
@@ -359,7 +359,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "volume-converter",
-    title: "Volume Converter – Liters, Gallons, m³, ft³, and Ounces",
+    title: "Volume Converter [Instant Unit Conversion] – Litres, Gallons, m³ & ft³",
     h1: "Volume Converter",
     shortDescription:
       "Convert instantly between liters, milliliters, cubic meters, cubic feet, cubic inches, US gallons, and imperial gallons.",
@@ -386,7 +386,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "rectangular-prism-volume-calculator",
-    title: "Rectangular Prism Volume Calculator – Box & Cuboid",
+    title: "Rectangular Prism Volume Calculator (Box & Cuboid) – V = l × w × h",
     h1: "Rectangular Prism Volume Calculator",
     shortDescription:
       "Calculate the volume, surface area, and space diagonal of rectangular prisms, boxes, and cuboids.",
@@ -412,7 +412,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "cube-volume-calculator",
-    title: "Cube Volume Calculator – Side Length, Surface Area & Diagonals",
+    title: "Cube Volume Calculator [V = a³] – Surface Area & Diagonals",
     h1: "Cube Volume Calculator",
     shortDescription:
       "Calculate cube volume, surface area, face diagonal, and space diagonal from edge length with instant unit conversions.",
@@ -438,7 +438,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "sphere-volume-calculator",
-    title: "Sphere Volume Calculator – Radius, Diameter & Surface Area",
+    title: "Sphere Volume Calculator [V = 4/3 π r³] – Radius & Diameter",
     h1: "Sphere Volume Calculator",
     shortDescription:
       "Calculate sphere volume, surface area, and circumference from radius or diameter with full mathematical derivation.",
@@ -464,7 +464,7 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
   },
   {
     slug: "cone-volume-calculator",
-    title: "Cone Volume Calculator – Radius, Height & Slant Height",
+    title: "Cone Volume Calculator [V = 1/3 π r² h] – Radius & Slant Height",
     h1: "Cone Volume Calculator",
     shortDescription:
       "Calculate cone volume, slant height, base area, and lateral surface area from radius or diameter and vertical height.",

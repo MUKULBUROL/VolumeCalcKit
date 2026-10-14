@@ -8,8 +8,30 @@ export const metadata: Metadata = {
   title: "How to Calculate CBM for Shipping & Freight – Complete Guide",
   description:
     "Learn how to calculate CBM (cubic meters) for ocean and air freight shipments, multiple carton consignments, container stuffing, and volumetric weight.",
+  keywords: [
+    "how to calculate cbm",
+    "cbm calculation formula",
+    "calculate cubic meters freight",
+    "cbm to weight conversion",
+    "shipping cbm formula",
+    "how to calculate cbm for container",
+  ],
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/how-to-calculate-cbm`,
+  },
+  openGraph: {
+    title: "How to Calculate CBM for Shipping & Freight – Complete Guide | VolumeCalcKit",
+    description:
+      "Learn how to calculate CBM (cubic meters) for ocean and air freight shipments, multiple carton consignments, container stuffing, and volumetric weight.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/how-to-calculate-cbm`,
+    siteName: "VolumeCalcKit",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Calculate CBM for Shipping & Freight – Complete Guide | VolumeCalcKit",
+    description:
+      "Learn how to calculate CBM (cubic meters) for ocean and air freight shipments, multiple carton consignments, container stuffing, and volumetric weight.",
   },
 };
 

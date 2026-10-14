@@ -9,8 +9,30 @@ const meta = getCalculatorBySlug("sphere-volume-calculator")!;
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.metaDescription,
+  keywords: [
+    "sphere volume calculator",
+    "calculate volume of sphere",
+    "volume of a sphere formula",
+    "sphere capacity calculator",
+    "radius to sphere volume",
+    "sphere surface area",
+    "4/3 pi r cubed",
+    "hemisphere volume",
+  ],
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+  },
+  openGraph: {
+    title: `${meta.title} | VolumeCalcKit`,
+    description: meta.metaDescription,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+    siteName: "VolumeCalcKit",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${meta.title} | VolumeCalcKit`,
+    description: meta.metaDescription,
   },
 };
 

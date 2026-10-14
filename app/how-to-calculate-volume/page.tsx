@@ -8,8 +8,30 @@ export const metadata: Metadata = {
   title: "How to Calculate Volume – Complete Step-by-Step Guide",
   description:
     "Learn how to calculate the volume of any 3D shape, container, or shipping package with practical examples, formulas, and unit conversion rules.",
+  keywords: [
+    "how to calculate volume",
+    "volume calculation guide",
+    "step by step volume formulas",
+    "3d volume measurement",
+    "calculate capacity in liters",
+    "how to find volume of shapes",
+  ],
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/how-to-calculate-volume`,
+  },
+  openGraph: {
+    title: "How to Calculate Volume – Complete Step-by-Step Guide | VolumeCalcKit",
+    description:
+      "Learn how to calculate the volume of any 3D shape, container, or shipping package with practical examples, formulas, and unit conversion rules.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/how-to-calculate-volume`,
+    siteName: "VolumeCalcKit",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Calculate Volume – Complete Step-by-Step Guide | VolumeCalcKit",
+    description:
+      "Learn how to calculate the volume of any 3D shape, container, or shipping package with practical examples, formulas, and unit conversion rules.",
   },
 };
 

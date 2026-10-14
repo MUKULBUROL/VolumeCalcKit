@@ -9,8 +9,30 @@ const meta = getCalculatorBySlug("volume-converter")!;
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.metaDescription,
+  keywords: [
+    "volume converter",
+    "liters to gallons",
+    "gallons to liters",
+    "cubic feet to liters",
+    "cubic meters to cubic feet",
+    "milliliters to ounces",
+    "fluid ounce converter",
+    "capacity conversion calculator",
+  ],
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+  },
+  openGraph: {
+    title: `${meta.title} | VolumeCalcKit`,
+    description: meta.metaDescription,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+    siteName: "VolumeCalcKit",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${meta.title} | VolumeCalcKit`,
+    description: meta.metaDescription,
   },
 };
 

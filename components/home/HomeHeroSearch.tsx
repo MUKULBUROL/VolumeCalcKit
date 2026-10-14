@@ -64,10 +64,11 @@ export const HomeHeroSearch: React.FC = () => {
   };
 
   const shortcuts = [
+    { label: "Volume Calculator", slug: "volume-calculator" },
     { label: "CBM Calculator", slug: "cbm-calculator" },
-    { label: "CFT to CBM", slug: "cft-to-cbm-calculator" },
-    { label: "Cylinder Volume", slug: "cylinder-volume-calculator" },
     { label: "Pipe Volume", slug: "pipe-volume-calculator" },
+    { label: "Cylinder Volume", slug: "cylinder-volume-calculator" },
+    { label: "Cubic Meter (m³)", slug: "cubic-meter-calculator" },
     { label: "Tank Volume", slug: "tank-volume-calculator" },
   ];
 

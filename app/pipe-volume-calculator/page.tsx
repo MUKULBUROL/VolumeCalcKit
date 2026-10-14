@@ -10,8 +10,21 @@ const meta = getCalculatorBySlug("pipe-volume-calculator")!;
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.metaDescription,
+  keywords: meta.keywords,
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+  },
+  openGraph: {
+    title: meta.title,
+    description: meta.metaDescription,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+    siteName: "VolumeCalcKit",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: meta.title,
+    description: meta.metaDescription,
   },
 };
 
@@ -84,19 +97,93 @@ export default function PipeVolumeCalculatorPage() {
             </div>
           </>
         ),
+        unitsAndConversionsContent: (
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left border-collapse font-mono">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 font-sans">
+                  <th className="py-2">Nominal Size (NPS)</th>
+                  <th className="py-2">Inside Diameter (ID)</th>
+                  <th className="py-2">Volume per Foot (gal/ft)</th>
+                  <th className="py-2">Volume per Meter (L/m)</th>
+                  <th className="py-2">Full Water Weight (kg/m)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">1/2&quot; Sch 40</td>
+                  <td className="py-1.5">0.622 in (15.80 mm)</td>
+                  <td className="py-1.5">0.0158 gal</td>
+                  <td className="py-1.5">0.196 L</td>
+                  <td className="py-1.5">0.196 kg</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">3/4&quot; Sch 40</td>
+                  <td className="py-1.5">0.824 in (20.93 mm)</td>
+                  <td className="py-1.5">0.0277 gal</td>
+                  <td className="py-1.5">0.344 L</td>
+                  <td className="py-1.5">0.344 kg</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">1&quot; Sch 40</td>
+                  <td className="py-1.5">1.049 in (26.64 mm)</td>
+                  <td className="py-1.5">0.0449 gal</td>
+                  <td className="py-1.5">0.557 L</td>
+                  <td className="py-1.5">0.557 kg</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">1-1/2&quot; Sch 40</td>
+                  <td className="py-1.5">1.610 in (40.89 mm)</td>
+                  <td className="py-1.5">0.1058 gal</td>
+                  <td className="py-1.5">1.313 L</td>
+                  <td className="py-1.5">1.313 kg</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">2&quot; Sch 40</td>
+                  <td className="py-1.5">2.067 in (52.50 mm)</td>
+                  <td className="py-1.5">0.1743 gal</td>
+                  <td className="py-1.5">2.165 L</td>
+                  <td className="py-1.5">2.165 kg</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">3&quot; Sch 40</td>
+                  <td className="py-1.5">3.068 in (77.93 mm)</td>
+                  <td className="py-1.5">0.3840 gal</td>
+                  <td className="py-1.5">4.770 L</td>
+                  <td className="py-1.5">4.770 kg</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">4&quot; Sch 40</td>
+                  <td className="py-1.5">4.026 in (102.26 mm)</td>
+                  <td className="py-1.5">0.6613 gal</td>
+                  <td className="py-1.5">8.213 L</td>
+                  <td className="py-1.5">8.213 kg</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        ),
         practicalNotesContent: (
           <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
             <p>
               <strong>Schedule &amp; Wall Thickness:</strong> Heavy schedule pipes (such as Schedule 80 steel or SDR 11 HDPE) have much thicker walls than Schedule 40, which significantly narrows inside diameter and fluid volume. Always look up actual internal diameter specs.
             </p>
             <p>
-              <strong>Related Calculators:</strong> For cylindrical storage vessels and dip measurements, use the{" "}
+              <strong>Related Calculators:</strong> For circular tanks and columns, use the{" "}
+              <Link href="/cylinder-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                Cylinder Volume Calculator
+              </Link>
+              ; for industrial liquid reservoirs and dip measurements, use the{" "}
               <Link href="/tank-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
                 Tank Volume Calculator
               </Link>
-              , or calculate geometric cylinder values with our{" "}
-              <Link href="/cylinder-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-                Cylinder Volume Calculator
+              ; and for multi-shape calculations, explore our general{" "}
+              <Link href="/volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                Volume Calculator
+              </Link>{" "}
+              and{" "}
+              <Link href="/cubic-meter-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                Cubic Meter Calculator (m³)
               </Link>
               .
             </p>

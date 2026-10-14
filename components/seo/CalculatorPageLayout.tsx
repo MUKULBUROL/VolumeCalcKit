@@ -94,6 +94,7 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
         url: `${baseUrl}/${meta.slug}`,
         name: meta.title,
         description: meta.metaDescription,
+        keywords: meta.keywords.join(", "),
         isPartOf: {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
@@ -129,14 +130,37 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
         "@type": "SoftwareApplication",
         name: meta.h1,
         applicationCategory: "UtilityApplication",
+        applicationSubCategory: "Calculators & Converters",
         operatingSystem: "All",
+        isAccessibleForFree: "True",
         offers: {
           "@type": "Offer",
           price: "0",
           priceCurrency: "USD",
         },
         description: meta.shortDescription,
+        featureList: [
+          "Step-by-step mathematical formulas and derivations",
+          "Real-time instant calculation results",
+          "Comprehensive unit conversion support across metric and imperial systems",
+        ],
       },
+      ...(content.faqContent && content.faqContent.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${baseUrl}/${meta.slug}#faq`,
+              mainEntity: content.faqContent.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: typeof faq.answer === "string" ? faq.answer : faq.question,
+                },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 

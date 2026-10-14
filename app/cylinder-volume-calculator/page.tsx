@@ -10,8 +10,21 @@ const meta = getCalculatorBySlug("cylinder-volume-calculator")!;
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.metaDescription,
+  keywords: meta.keywords,
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+  },
+  openGraph: {
+    title: meta.title,
+    description: meta.metaDescription,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+    siteName: "VolumeCalcKit",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: meta.title,
+    description: meta.metaDescription,
   },
 };
 
@@ -137,13 +150,21 @@ export default function CylinderVolumeCalculatorPage() {
               <strong>Radius vs Diameter Warning:</strong> Plugging diameter directly into πr²h instead of radius overestimates cylinder volume by 400% (4×).
             </p>
             <p>
-              <strong>Related Tools:</strong> For horizontal cylinder dip and tank capacity, use our{" "}
+              <strong>Related Tools:</strong> For hollow conduit pipelines, use our{" "}
+              <Link href="/pipe-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                Pipe Volume Calculator
+              </Link>
+              ; for horizontal cylinder dip and liquid storage, use the{" "}
               <Link href="/tank-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
                 Tank Volume Calculator
               </Link>
-              ; for pipes and tubes, check the{" "}
-              <Link href="/pipe-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-                Pipe Volume Calculator
+              ; for general solids, use the{" "}
+              <Link href="/volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                Volume Calculator
+              </Link>
+              ; and for metric volume calculations, try the{" "}
+              <Link href="/cubic-meter-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                Cubic Meter Calculator (m³)
               </Link>
               .
             </p>
@@ -161,6 +182,11 @@ export default function CylinderVolumeCalculatorPage() {
               "Yes. Either divide the diameter by 2 to find radius (r = d/2), or use the direct formula: V = (π / 4) × diameter² × height ≈ 0.7854 × d² × h.",
           },
           {
+            question: "How do I calculate cylinder volume in cubic meters (m³)?",
+            answer:
+              "Measure radius (or diameter) and height in meters. Volume in cubic meters (m³) = π × (radius in meters)² × (height in meters). To convert m³ to litres, multiply by 1,000.",
+          },
+          {
             question: "How do I calculate cylinder volume in litres?",
             answer:
               "Calculate volume in cubic centimeters (cm³) and divide by 1,000, or calculate in cubic meters (m³) and multiply by 1,000. 1 Liter equals 1,000 cm³ or 0.001 m³.",
@@ -176,9 +202,9 @@ export default function CylinderVolumeCalculatorPage() {
               "Diameter is the full distance straight across the widest point of a circle. Radius is the distance from the center to the edge (exactly half the diameter: r = d / 2).",
           },
           {
-            question: "Can radius and height use different units?",
+            question: "What is the difference between a cylinder and a pipe?",
             answer:
-              "Before doing manual math, radius and height must be converted into the same unit. Our calculator handles mixed units automatically.",
+              "A solid cylinder has full internal volume. A pipe is a hollow cylinder with wall thickness, where internal capacity is calculated exclusively from the inside diameter (ID).",
           },
           {
             question: "What is the difference between cylinder volume and surface area?",

@@ -10,8 +10,21 @@ const meta = getCalculatorBySlug("volume-calculator")!;
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.metaDescription,
+  keywords: meta.keywords,
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+  },
+  openGraph: {
+    title: meta.title,
+    description: meta.metaDescription,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+    siteName: "VolumeCalcKit",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: meta.title,
+    description: meta.metaDescription,
   },
 };
 
@@ -159,42 +172,74 @@ export default function VolumeCalculatorPage() {
         practicalNotesContent: (
           <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
             <p>
-              <strong>Common Volume Calculations:</strong> Different applications require specific geometric models. For shipping boxes and freight containers, use the{" "}
-              <Link href="/cbm-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-                CBM Calculator
-              </Link>
-              ; for industrial cylinders and barrels, use the{" "}
-              <Link href="/cylinder-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-                Cylinder Volume Calculator
-              </Link>
-              ; and for storage tanks, use the{" "}
-              <Link href="/tank-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-                Tank Volume Calculator
-              </Link>
-              .
+              <strong>Specialized Volume Calculators:</strong> While this general volume calculator computes regular 3D solids, specific industries and applications use specialized tools:
             </p>
+            <ul className="list-disc pl-5 space-y-1 mt-2">
+              <li>
+                For shipping boxes, cargo freight, and pallet loading, use the{" "}
+                <Link href="/cbm-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                  CBM Calculator
+                </Link>{" "}
+                or the{" "}
+                <Link href="/cubic-meter-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                  Cubic Meter Calculator (m³)
+                </Link>
+                .
+              </li>
+              <li>
+                For circular columns, drums, and barrels, use our dedicated{" "}
+                <Link href="/cylinder-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                  Cylinder Volume Calculator
+                </Link>
+                .
+              </li>
+              <li>
+                For plumbing, water mains, and tubing holding capacity, use the{" "}
+                <Link href="/pipe-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                  Pipe Volume Calculator
+                </Link>
+                .
+              </li>
+              <li>
+                For vertical and horizontal liquid storage vessels, use the{" "}
+                <Link href="/tank-volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                  Tank Volume Calculator
+                </Link>
+                .
+              </li>
+            </ul>
           </div>
         ),
         faqContent: [
           {
-            question: "What is volume?",
+            question: "What is a volume calculator?",
             answer:
-              "Volume is the quantity of three-dimensional space occupied by a liquid, solid, or gas, measured in cubic units (m³, ft³, in³) or capacity units (liters, gallons).",
+              "A volume calculator is an online mathematical tool that determines the total three-dimensional capacity and space occupied by geometric shapes (such as cylinders, cubes, spheres, and prisms) or containers, providing instant results across cubic units, litres, and gallons.",
           },
           {
-            question: "How do you calculate volume?",
+            question: "How do you calculate volume for different 3D shapes?",
             answer:
-              "Identify the solid shape, measure necessary dimensions (e.g. length, width, radius, height) in the same unit, and apply the geometric volume formula for that shape.",
+              "To calculate volume, measure the solid's primary dimensions in uniform units and apply its specific formula: V = a³ for cubes, V = l × w × h for rectangular boxes, V = πr²h for cylinders, V = ⁴⁄₃πr³ for spheres, and V = ⅓πr²h for cones.",
+          },
+          {
+            question: "How do I calculate cylinder or pipe volume?",
+            answer:
+              "To calculate the volume of a cylinder or pipe, multiply the circular cross-sectional base area by its length or height (V = π × r² × h). For pipes, always use the inside diameter (ID) to find the internal fluid capacity.",
+          },
+          {
+            question: "How do I calculate volume for shipping freight in cubic meters (CBM)?",
+            answer:
+              "To calculate shipping volume in CBM (cubic meters), multiply length × width × height in meters, then multiply by the total carton quantity. If dimensions are in centimeters, multiply them together and divide by 1,000,000.",
           },
           {
             question: "What is the difference between volume and capacity?",
             answer:
-              "Volume refers to the physical 3D space occupied or enclosed (e.g., m³ or cubic feet). Capacity refers to the maximum volume of liquid or bulk material a container can hold (e.g., Liters or Gallons).",
+              "Volume refers to the physical 3D space occupied or enclosed (measured in cubic meters, cubic feet, or cubic inches). Capacity refers to the maximum volume of liquid or bulk fluid a container can hold (measured in liters or gallons).",
           },
           {
             question: "How do I convert cubic meters to liters and gallons?",
             answer:
-              "1 cubic meter (m³) contains exactly 1,000 Litres or approximately 264.172 US liquid gallons (219.969 Imperial gallons).",
+              "1 cubic meter (m³) contains exactly 1,000 Litres or approximately 264.172 US liquid gallons (219.969 Imperial gallons). To convert m³ to litres, multiply by 1,000.",
           },
         ],
       }}

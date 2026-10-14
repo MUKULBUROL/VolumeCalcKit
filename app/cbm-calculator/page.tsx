@@ -10,8 +10,21 @@ const meta = getCalculatorBySlug("cbm-calculator")!;
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.metaDescription,
+  keywords: meta.keywords,
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+  },
+  openGraph: {
+    title: meta.title,
+    description: meta.metaDescription,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://volumecalckit.com"}/${meta.slug}`,
+    siteName: "VolumeCalcKit",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: meta.title,
+    description: meta.metaDescription,
   },
 };
 
@@ -139,6 +152,52 @@ export default function CbmCalculatorPage() {
             </div>
           </>
         ),
+        unitsAndConversionsContent: (
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left border-collapse font-mono">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 font-sans">
+                  <th className="py-2">Dimension Unit</th>
+                  <th className="py-2">Conversion Formula to CBM (m³)</th>
+                  <th className="py-2">Equivalence Example (100×50×40)</th>
+                  <th className="py-2">Equivalent in CFT</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">Meters (m)</td>
+                  <td className="py-1.5 font-bold text-blue-600 dark:text-blue-400">L × W × H</td>
+                  <td className="py-1.5">1.0 × 0.5 × 0.4 = 0.2000 CBM</td>
+                  <td className="py-1.5">7.0629 ft³</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">Centimeters (cm)</td>
+                  <td className="py-1.5 font-bold text-blue-600 dark:text-blue-400">(L × W × H) ÷ 1,000,000</td>
+                  <td className="py-1.5">200,000 ÷ 1,000,000 = 0.2000 CBM</td>
+                  <td className="py-1.5">7.0629 ft³</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">Millimeters (mm)</td>
+                  <td className="py-1.5 font-bold text-blue-600 dark:text-blue-400">(L × W × H) ÷ 1,000,000,000</td>
+                  <td className="py-1.5">200,000,000 ÷ 1,000,000,000 = 0.2000 CBM</td>
+                  <td className="py-1.5">7.0629 ft³</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">Inches (in)</td>
+                  <td className="py-1.5 font-bold text-blue-600 dark:text-blue-400">(L × W × H) ÷ 61,023.74</td>
+                  <td className="py-1.5">39.37 × 19.69 × 15.75 ÷ 61,023.74 ≈ 0.2000 CBM</td>
+                  <td className="py-1.5">7.0629 ft³</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 font-sans font-medium">Feet (ft)</td>
+                  <td className="py-1.5 font-bold text-blue-600 dark:text-blue-400">(L × W × H) ÷ 35.3147</td>
+                  <td className="py-1.5">7.0629 ÷ 35.3147 ≈ 0.2000 CBM</td>
+                  <td className="py-1.5">7.0629 ft³</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        ),
         practicalNotesContent: (
           <ul className="list-disc pl-5 space-y-2 text-xs text-slate-600 dark:text-slate-400">
             <li>
@@ -146,6 +205,17 @@ export default function CbmCalculatorPage() {
             </li>
             <li>
               <strong>Pallet Dimensions:</strong> If goods are shipped on standard wooden pallets (120 × 80 cm Euro or 120 × 100 cm US), include the 15 cm wooden pallet base in total height measurements.
+            </li>
+            <li>
+              <strong>Cubic Meters vs CBM:</strong> 1 CBM is identical to 1 cubic meter (1 m³). For non-shipping solids or general volume calculations, see our{" "}
+              <Link href="/cubic-meter-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                Cubic Meter Calculator (m³)
+              </Link>{" "}
+              and{" "}
+              <Link href="/volume-calculator" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                Volume Calculator
+              </Link>
+              .
             </li>
             <li>
               <strong>Container Planning:</strong> Standard 20ft containers hold ~28–30 CBM of usable cargo, while 40ft containers hold ~58–62 CBM. Check our{" "}

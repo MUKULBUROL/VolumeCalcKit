@@ -10,7 +10,8 @@ export type DiagramType =
   | "tank_vertical"
   | "tank_horizontal"
   | "pipe"
-  | "cbm_box";
+  | "cbm_box"
+  | "pool";
 
 interface DiagramSVGProps {
   type: DiagramType;
@@ -293,6 +294,39 @@ export const DiagramSVG: React.FC<DiagramSVGProps> = ({
           <line x1="40" y1="42" x2="40" y2="98" className="stroke-blue-600 dark:stroke-blue-400 stroke-dashed" strokeWidth="1.5" strokeDasharray="3 2" />
           <text x="45" y="73" className="fill-blue-700 dark:fill-blue-300 text-[10px] font-mono font-bold">Inside Dia (ID)</text>
           <text x="95" y="20" className="fill-slate-800 dark:fill-slate-200 text-[11px] font-mono font-bold">Length (L)</text>
+        </svg>
+      );
+
+    case "pool":
+      return (
+        <svg
+          viewBox="0 0 240 160"
+          className={className}
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Swimming pool with shallow and deep end slope"
+        >
+          {/* Water Surface Polygon */}
+          <polygon
+            points="30,40 180,40 210,65 60,65"
+            className="fill-cyan-400/30 dark:fill-cyan-500/30 stroke-cyan-500 dark:stroke-cyan-400"
+            strokeWidth="1.5"
+          />
+          {/* Pool Walls with sloped bottom */}
+          <line x1="30" y1="40" x2="30" y2="80" className="stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+          <line x1="60" y1="65" x2="60" y2="105" className="stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+          <line x1="30" y1="80" x2="180" y2="120" className="stroke-blue-600 dark:stroke-blue-400" strokeWidth="2" strokeDasharray="4 2" />
+          <line x1="60" y1="105" x2="210" y2="145" className="stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+          <line x1="180" y1="40" x2="180" y2="120" className="stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+          <line x1="210" y1="65" x2="210" y2="145" className="stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+          <line x1="180" y1="120" x2="210" y2="145" className="stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+          <line x1="30" y1="80" x2="60" y2="105" className="stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+          
+          {/* Dimension Labels */}
+          <text x="100" y="32" className="fill-slate-800 dark:fill-slate-200 text-[10px] font-mono font-bold">Length (L)</text>
+          <text x="5" y="65" className="fill-blue-600 dark:fill-blue-400 text-[9px] font-mono font-bold">Shallow</text>
+          <text x="185" y="100" className="fill-blue-700 dark:fill-blue-300 text-[9px] font-mono font-bold">Deep End</text>
+          <text x="135" y="60" className="fill-slate-700 dark:fill-slate-300 text-[9px] font-mono">Width (W)</text>
         </svg>
       );
 

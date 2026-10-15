@@ -14,6 +14,7 @@ const routes = [
   "/cone-volume-calculator",
   "/conical-frustum-calculator",
   "/aquarium-volume-calculator",
+  "/pool-volume-calculator",
   "/cft-to-cbm-calculator",
   "/container-cbm-calculator",
   "/pipe-volume-calculator",

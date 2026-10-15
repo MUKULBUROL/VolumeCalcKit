@@ -518,6 +518,37 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
     formulaSummary: "V = ⅓ × π × h × (r₁² + r₁×r₂ + r₂²)",
     popular: true,
   },
+  {
+    slug: "pool-volume-calculator",
+    title: "Swimming Pool Volume Calculator [Gallons & Liters] – Sloped Deep End",
+    h1: "Swimming Pool Volume Calculator",
+    shortDescription:
+      "Calculate swimming pool water capacity in US gallons, Imperial gallons, and liters for rectangular, round, oval, and kidney pools with sloped floors.",
+    metaDescription:
+      "Calculate swimming pool volume in gallons and liters. Supports rectangular, round, oval, and kidney pools with shallow and deep ends. Includes chlorine and salt chemical estimates.",
+    category: "capacity",
+    keywords: [
+      "pool volume calculator",
+      "swimming pool gallons calculator",
+      "pool capacity calculator",
+      "how many gallons in my pool",
+      "rectangle pool volume with deep end",
+      "round pool gallons calculator",
+      "oval pool volume calculator",
+      "kidney pool volume",
+      "pool chemical dosage calculator",
+      "pool salt calculator",
+    ],
+    relatedCalculators: [
+      "tank-volume-calculator",
+      "aquarium-volume-calculator",
+      "cylinder-volume-calculator",
+      "volume-calculator",
+    ],
+    lastReviewed: "2026-03-10",
+    formulaSummary: "V = Surface Area × ((Shallow Depth + Deep Depth) ÷ 2)",
+    popular: true,
+  },
 ];
 
 export const SITE_CONFIG = {

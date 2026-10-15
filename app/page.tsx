@@ -12,18 +12,25 @@ import {
   Zap,
   CheckCircle2,
   Sparkles,
+  Truck,
+  Waves,
 } from "lucide-react";
 import { CALCULATORS_REGISTRY } from "@/lib/constants/registry";
 import { HomeHeroSearch } from "@/components/home/HomeHeroSearch";
 import { HeroVisualBlueprint } from "@/components/home/HeroVisualBlueprint";
 
 export const metadata = {
-  title: "Volume Calculators – CBM, Tank, Cylinder & More | VolumeCalcKit",
+  title: "Volume Calculators – CBM, Tank, Concrete, Cylinder & More | VolumeCalcKit",
   description:
-    "Free calculators for volume, CBM, tank capacity, cylinders, pipes, cubic measurements and unit conversions with instant calculations and derivations.",
+    "Free calculators for volume, concrete slabs & bags, swimming pools, CBM shipping, tank capacity, cylinders, pipes, and unit conversions.",
   keywords: [
     "volume calculator",
+    "concrete calculator",
+    "concrete bag calculator",
+    "pool volume calculator",
     "cbm calculator",
+    "container cbm calculator",
+    "conical frustum calculator",
     "pipe volume calculator",
     "cylinder volume calculator",
     "cubic metre calculator",
@@ -103,6 +110,41 @@ export default function HomePage() {
       units: ["L", "gal", "m³", "ft³"],
       badge: "Capacity",
       icon: Droplet,
+    },
+  ];
+
+  const commercialCards = [
+    {
+      slug: "concrete-calculator",
+      title: "Concrete Calculator",
+      description: "Estimate cubic yards, pre-mix bags (80 lb & 60 lb), ready-mix truckloads, and cost buffer for slabs and footings.",
+      units: ["yd³", "80-lb bags", "m³", "trucks"],
+      badge: "Contractor",
+      icon: Truck,
+    },
+    {
+      slug: "pool-volume-calculator",
+      title: "Swimming Pool Volume",
+      description: "Calculate pool capacity in US Gallons, Litres, and cubic meters with chlorine shock chemical dosing for all shapes.",
+      units: ["US gal", "L", "m³", "shock lbs"],
+      badge: "Commercial",
+      icon: Waves,
+    },
+    {
+      slug: "container-cbm-calculator",
+      title: "Container CBM Calculator",
+      description: "Calculate container stuffing, usable volume gauges (20ft, 40ft, 40ft HC), and standard pallet fitment.",
+      units: ["CBM", "20ft (28m³)", "40ft (58m³)", "pallets"],
+      badge: "Logistics",
+      icon: Box,
+    },
+    {
+      slug: "conical-frustum-calculator",
+      title: "Conical Frustum Calculator",
+      description: "Calculate truncated cone volume, slant height, and surface area from top/bottom radii with geometric proofs.",
+      units: ["m³", "cm³", "ft³", "in³"],
+      badge: "Engineering",
+      icon: Layers,
     },
   ];
 
@@ -240,6 +282,76 @@ export default function HomePage() {
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-50 hover:bg-blue-600 dark:bg-navy-800 dark:hover:bg-blue-600 text-blue-700 hover:text-white dark:text-slate-200 dark:hover:text-white rounded-xl text-xs font-bold transition-all shadow-2xs group-hover:shadow"
                   >
                     <span>Open Calculator</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 2b. Commercial, Trade & Construction Calculators Section */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 dark:border-navy-800 pb-4">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-mono mb-1 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Trade &amp; Industrial Solutions
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
+              Construction, Pool &amp; Freight Calculators
+            </h2>
+          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
+            High-precision estimators for contractors, pool maintenance, and global freight forwarding.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {commercialCards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={card.slug}
+                className="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 rounded-2xl p-5 transition-all shadow-sm hover:shadow-xl group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300">
+                      {card.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base font-bold text-slate-950 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">
+                    {card.description}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {card.units.map((unit) => (
+                      <span
+                        key={unit}
+                        className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-navy-800 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-navy-750"
+                      >
+                        {unit}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-slate-100 dark:border-navy-800">
+                  <Link
+                    href={`/${card.slug}`}
+                    className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 bg-emerald-50 hover:bg-emerald-600 dark:bg-navy-800 dark:hover:bg-emerald-600 text-emerald-700 hover:text-white dark:text-slate-200 dark:hover:text-white rounded-xl text-xs font-bold transition-all shadow-2xs group-hover:shadow"
+                  >
+                    <span>Launch Estimator</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>

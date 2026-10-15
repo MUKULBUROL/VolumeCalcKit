@@ -19,6 +19,7 @@ const routes = [
   "/container-cbm-calculator",
   "/pipe-volume-calculator",
   "/cubic-yard-calculator",
+  "/concrete-calculator",
   "/volumetric-weight-calculator",
   "/volume-formulas",
   "/how-to-calculate-volume",

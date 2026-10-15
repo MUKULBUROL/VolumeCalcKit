@@ -549,6 +549,37 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
     formulaSummary: "V = Surface Area × ((Shallow Depth + Deep Depth) ÷ 2)",
     popular: true,
   },
+  {
+    slug: "concrete-calculator",
+    title: "Concrete Calculator (Yards & Bags) – Slabs, Footings & Columns",
+    h1: "Concrete Calculator",
+    shortDescription:
+      "Calculate concrete volume in cubic yards, cubic feet, and 60-lb/80-lb pre-mixed bags for slabs, footings, and Sonotube columns with excavation waste buffer.",
+    metaDescription:
+      "Free concrete calculator. Calculate cubic yards and exact 80-lb and 60-lb bag counts for slabs, patios, footings, and cylindrical columns with +10% waste buffer.",
+    category: "shipping",
+    keywords: [
+      "concrete calculator",
+      "concrete slab calculator",
+      "concrete yardage calculator",
+      "how many 80lb bags of concrete for slab",
+      "concrete calculator bags",
+      "patio concrete calculator",
+      "sonotube concrete calculator",
+      "cubic yards of concrete",
+      "concrete footing calculator",
+      "ready mix concrete estimator",
+    ],
+    relatedCalculators: [
+      "cubic-yard-calculator",
+      "cubic-feet-calculator",
+      "cylinder-volume-calculator",
+      "volume-calculator",
+    ],
+    lastReviewed: "2026-03-10",
+    formulaSummary: "Cubic Yards = (Length × Width × Thickness_in ÷ 12) ÷ 27 × (1 + Waste%)",
+    popular: true,
+  },
 ];
 
 export const SITE_CONFIG = {

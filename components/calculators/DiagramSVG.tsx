@@ -11,7 +11,8 @@ export type DiagramType =
   | "tank_horizontal"
   | "pipe"
   | "cbm_box"
-  | "pool";
+  | "pool"
+  | "concrete_slab";
 
 interface DiagramSVGProps {
   type: DiagramType;
@@ -327,6 +328,40 @@ export const DiagramSVG: React.FC<DiagramSVGProps> = ({
           <text x="5" y="65" className="fill-blue-600 dark:fill-blue-400 text-[9px] font-mono font-bold">Shallow</text>
           <text x="185" y="100" className="fill-blue-700 dark:fill-blue-300 text-[9px] font-mono font-bold">Deep End</text>
           <text x="135" y="60" className="fill-slate-700 dark:fill-slate-300 text-[9px] font-mono">Width (W)</text>
+        </svg>
+      );
+
+    case "concrete_slab":
+      return (
+        <svg
+          viewBox="0 0 240 160"
+          className={className}
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Concrete slab dimension diagram"
+        >
+          {/* Top Face - Concrete gray texture */}
+          <polygon
+            points="30,50 170,30 215,85 75,105"
+            className="fill-slate-300 dark:fill-slate-700 stroke-slate-700 dark:stroke-slate-300"
+            strokeWidth="1.5"
+          />
+          {/* Front edge - Slab thickness */}
+          <polygon
+            points="75,105 215,85 215,115 75,135"
+            className="fill-slate-400 dark:fill-slate-800 stroke-slate-700 dark:stroke-slate-300"
+            strokeWidth="1.5"
+          />
+          {/* Left edge - Slab thickness */}
+          <polygon
+            points="30,50 75,105 75,135 30,80"
+            className="fill-slate-500/80 dark:fill-slate-900 stroke-slate-700 dark:stroke-slate-300"
+            strokeWidth="1.5"
+          />
+          {/* Dimension Lines */}
+          <text x="80" y="30" className="fill-slate-800 dark:fill-slate-200 text-[10px] font-mono font-bold">Length (L)</text>
+          <text x="160" y="105" className="fill-slate-800 dark:fill-slate-200 text-[10px] font-mono font-bold">Width (W)</text>
+          <text x="15" y="105" className="fill-amber-600 dark:fill-amber-400 text-[10px] font-mono font-bold">Thickness (T)</text>
         </svg>
       );
 

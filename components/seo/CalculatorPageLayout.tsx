@@ -94,6 +94,8 @@ function extractNodeText(node: React.ReactNode): string {
       ? "conical_frustum"
       : meta.slug.includes("pool")
       ? "pool"
+      : meta.slug.includes("concrete")
+      ? "concrete_slab"
       : meta.slug.includes("cone")
       ? "cone"
       : meta.slug.includes("cube")

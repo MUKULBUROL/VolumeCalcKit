@@ -38,6 +38,7 @@ const UNITS_MAP: Record<string, string[]> = {
   "cone-volume-calculator": ["m³", "ft³", "in³", "L"],
   "conical-frustum-calculator": ["m³", "ft³", "in³", "L"],
   "pool-volume-calculator": ["gal", "L", "ft³", "lbs"],
+  "concrete-calculator": ["yd³", "ft³", "bags", "m³"],
   "tank-volume-calculator": ["L", "gal", "m³", "ft³"],
   "pipe-volume-calculator": ["L", "gal", "m³", "ft³"],
   "aquarium-volume-calculator": ["L", "gal", "kg", "lbs"],

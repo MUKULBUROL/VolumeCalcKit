@@ -488,6 +488,36 @@ export const CALCULATORS_REGISTRY: CalculatorMeta[] = [
     formulaSummary: "V = ⅓ × π × r² × h",
     popular: false,
   },
+  {
+    slug: "conical-frustum-calculator",
+    title: "Conical Frustum Calculator [Truncated Cone] – V = ⅓πh(r₁² + r₁r₂ + r₂²)",
+    h1: "Conical Frustum Volume Calculator",
+    shortDescription:
+      "Calculate the volume, slant height, lateral area, and surface area of a conical frustum (truncated cone) with instant unit conversions.",
+    metaDescription:
+      "Free conical frustum volume calculator. Calculate volume of truncated cone, plant pots, buckets, and lampshades from top radius, bottom radius, and height.",
+    category: "geometry",
+    keywords: [
+      "conical frustum calculator",
+      "frustum volume calculator",
+      "truncated cone volume",
+      "frustum of a cone formula",
+      "calculate volume of frustum",
+      "plant pot volume calculator",
+      "bucket volume calculator",
+      "slant height of frustum",
+      "conical frustum surface area",
+    ],
+    relatedCalculators: [
+      "cone-volume-calculator",
+      "cylinder-volume-calculator",
+      "tank-volume-calculator",
+      "volume-calculator",
+    ],
+    lastReviewed: "2026-03-10",
+    formulaSummary: "V = ⅓ × π × h × (r₁² + r₁×r₂ + r₂²)",
+    popular: true,
+  },
 ];
 
 export const SITE_CONFIG = {

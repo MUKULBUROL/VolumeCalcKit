@@ -4,6 +4,7 @@ export type DiagramType =
   | "cylinder"
   | "sphere"
   | "cone"
+  | "conical_frustum"
   | "cube"
   | "rectangular_prism"
   | "tank_vertical"
@@ -149,6 +150,41 @@ export const DiagramSVG: React.FC<DiagramSVGProps> = ({
           <text x="125" y="154" className="fill-blue-700 dark:fill-blue-300 text-[11px] font-mono font-bold">r</text>
           <text x="84" y="100" className="fill-slate-800 dark:fill-slate-200 text-[11px] font-mono font-bold">h</text>
           <text x="140" y="95" className="fill-amber-700 dark:fill-amber-300 text-[11px] font-mono font-bold">slant (s)</text>
+        </svg>
+      );
+
+    case "conical_frustum":
+      return (
+        <svg
+          viewBox="0 0 220 180"
+          className={className}
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Conical frustum dimension diagram"
+        >
+          {/* Top smaller ellipse */}
+          <ellipse cx="110" cy="40" rx="36" ry="12" className="fill-slate-100 dark:fill-slate-800 stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+          {/* Body lines */}
+          <path
+            d="M 74 40 L 40 140 A 70 20 0 0 0 180 140 L 146 40"
+            className="fill-slate-50 dark:fill-slate-800/50 stroke-slate-800 dark:stroke-slate-200"
+            strokeWidth="2"
+          />
+          {/* Bottom larger ellipse dashed back arc */}
+          <path d="M 40 140 A 70 20 0 0 1 180 140" className="stroke-slate-400 dark:stroke-slate-600 stroke-dashed" strokeWidth="1.5" strokeDasharray="3 3" />
+          {/* Radius top line */}
+          <line x1="110" y1="40" x2="146" y2="40" className="stroke-cyan-500" strokeWidth="2" />
+          <circle cx="110" cy="40" r="2.5" className="fill-cyan-500" />
+          <text x="116" y="34" className="fill-cyan-600 dark:fill-cyan-400 text-[10px] font-mono font-bold">r₁ (top)</text>
+          {/* Radius bottom line */}
+          <line x1="110" y1="140" x2="180" y2="140" className="stroke-blue-600 dark:stroke-blue-400" strokeWidth="2" />
+          <circle cx="110" cy="140" r="2.5" className="fill-blue-600 dark:fill-blue-400" />
+          <text x="120" y="156" className="fill-blue-700 dark:fill-blue-300 text-[10px] font-mono font-bold">r₂ (bottom)</text>
+          {/* Height vertical center line */}
+          <line x1="110" y1="40" x2="110" y2="140" className="stroke-slate-500 stroke-dashed" strokeWidth="1.5" strokeDasharray="3 2" />
+          <text x="82" y="92" className="fill-slate-700 dark:fill-slate-200 text-[11px] font-mono font-bold">Height (h)</text>
+          {/* Slant height label */}
+          <text x="168" y="90" className="fill-amber-600 dark:fill-amber-400 text-[10px] font-mono font-bold">Slant (s)</text>
         </svg>
       );
 

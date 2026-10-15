@@ -180,6 +180,30 @@ export default function CftToCbmCalculatorPage() {
                 </tbody>
               </table>
             </div>
+
+            {/* Standard Ocean Shipping Container Volume Reference */}
+            <div className="pt-3">
+              <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 uppercase font-mono mb-2">
+                Standard Shipping Container Capacities (CFT vs CBM)
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-mono">
+                <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700">
+                  <div className="font-sans font-bold text-slate-900 dark:text-slate-100 mb-1">20ft Dry Container</div>
+                  <div className="text-slate-600 dark:text-slate-300">• Internal: 1,172 CFT (33.2 CBM)</div>
+                  <div className="text-blue-600 dark:text-blue-400 font-bold">• Usable: ~990 CFT (28.0 CBM)</div>
+                </div>
+                <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700">
+                  <div className="font-sans font-bold text-slate-900 dark:text-slate-100 mb-1">40ft Dry Container</div>
+                  <div className="text-slate-600 dark:text-slate-300">• Internal: 2,389 CFT (67.7 CBM)</div>
+                  <div className="text-emerald-600 dark:text-emerald-400 font-bold">• Usable: ~2,050 CFT (58.0 CBM)</div>
+                </div>
+                <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700">
+                  <div className="font-sans font-bold text-slate-900 dark:text-slate-100 mb-1">40ft High Cube (HC)</div>
+                  <div className="text-slate-600 dark:text-slate-300">• Internal: 2,694 CFT (76.3 CBM)</div>
+                  <div className="text-purple-600 dark:text-purple-400 font-bold">• Usable: ~2,400 CFT (68.0 CBM)</div>
+                </div>
+              </div>
+            </div>
           </div>
         ),
         practicalNotesContent: (
@@ -214,6 +238,16 @@ export default function CftToCbmCalculatorPage() {
             question: "How many CFT are in 1 CBM?",
             answer:
               "There are approximately 35.3147 cubic feet (CFT) in 1 cubic meter (CBM).",
+          },
+          {
+            question: "How many CFT are in a 20ft container?",
+            answer:
+              "A standard 20ft shipping container has an internal volume of 1,172 cubic feet (33.2 CBM). In practice, because carton boxes leave packing air gaps, usable capacity is typically around 990 to 1,000 CFT (28 CBM).",
+          },
+          {
+            question: "How many CFT are in a 40ft High Cube container?",
+            answer:
+              "A 40ft High Cube container has an internal volume of 2,694 cubic feet (76.3 CBM), with realistic usable packing space of approximately 2,400 CFT (68 CBM).",
           },
           {
             question: "How many CBM are in 100 CFT?",

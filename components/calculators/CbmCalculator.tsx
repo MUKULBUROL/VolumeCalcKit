@@ -494,6 +494,71 @@ export const CbmCalculator: React.FC = () => {
           </div>
         </div>
 
+        {/* Real-World Container Fit & Pallet Estimator */}
+        <div className="p-4 rounded-2xl bg-slate-50 dark:bg-navy-850 border border-slate-200 dark:border-navy-750 space-y-3">
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <Box className="w-4 h-4 text-blue-500" />
+              <span>Container Load &amp; Pallet Fit</span>
+            </span>
+            <span className="text-[11px] text-slate-500 font-mono">Usable Capacity</span>
+          </div>
+
+          <div className="space-y-2 text-xs">
+            {/* 20ft Container */}
+            <div>
+              <div className="flex justify-between text-[11px] text-slate-600 dark:text-slate-300 mb-0.5">
+                <span>20ft Ocean Container (28 m³)</span>
+                <span className="font-mono font-bold">
+                  {((result.totalCbm / 28) * 100).toFixed(1)}% ({result.totalCbm > 28 ? Math.ceil(result.totalCbm / 28) + " needed" : "Fits"})
+                </span>
+              </div>
+              <div className="w-full bg-slate-200 dark:bg-navy-750 h-2 rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${
+                    result.totalCbm > 28 ? "bg-amber-500" : "bg-blue-500"
+                  }`}
+                  style={{ width: `${Math.min(100, (result.totalCbm / 28) * 100)}%` }}
+                />
+              </div>
+            </div>
+
+            {/* 40ft Container */}
+            <div>
+              <div className="flex justify-between text-[11px] text-slate-600 dark:text-slate-300 mb-0.5">
+                <span>40ft Ocean Container (58 m³)</span>
+                <span className="font-mono font-bold">
+                  {((result.totalCbm / 58) * 100).toFixed(1)}% ({result.totalCbm > 58 ? Math.ceil(result.totalCbm / 58) + " needed" : "Fits"})
+                </span>
+              </div>
+              <div className="w-full bg-slate-200 dark:bg-navy-750 h-2 rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${
+                    result.totalCbm > 58 ? "bg-amber-500" : "bg-emerald-500"
+                  }`}
+                  style={{ width: `${Math.min(100, (result.totalCbm / 58) * 100)}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Pallet Counts */}
+            <div className="pt-2 grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-400 border-t border-slate-200/60 dark:border-navy-750">
+              <div>
+                <span>Standard US Pallet (48×40″):</span>
+                <strong className="block text-slate-900 dark:text-white font-mono text-xs">
+                  ~{Math.max(1, Math.ceil(result.totalCbm / 1.5))} pallet{Math.ceil(result.totalCbm / 1.5) > 1 ? "s" : ""}
+                </strong>
+              </div>
+              <div>
+                <span>Euro Pallet (1200×800 mm):</span>
+                <strong className="block text-slate-900 dark:text-white font-mono text-xs">
+                  ~{Math.max(1, Math.ceil(result.totalCbm / 1.2))} pallet{Math.ceil(result.totalCbm / 1.2) > 1 ? "s" : ""}
+                </strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Action Buttons Row matching Image 3 */}
         <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-200 dark:border-navy-750">
           <button
@@ -509,7 +574,7 @@ export const CbmCalculator: React.FC = () => {
             ) : (
               <>
                 <Copy className="w-3.5 h-3.5 text-slate-500" />
-                <span>Copy</span>
+                <span>Copy Summary</span>
               </>
             )}
           </button>
@@ -529,7 +594,7 @@ export const CbmCalculator: React.FC = () => {
             className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-navy-850 hover:bg-slate-200 dark:hover:bg-navy-800 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
           >
             <Printer className="w-3.5 h-3.5 text-slate-500" />
-            <span>Print</span>
+            <span>Print Sheet</span>
           </button>
         </div>
       </div>

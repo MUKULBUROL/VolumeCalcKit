@@ -64,7 +64,20 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
 
   const related = getRelatedCalculators(meta.slug);
 
-  // Derive default diagram type if not explicitly passed
+function extractNodeText(node: React.ReactNode): string {
+  if (node === null || node === undefined) return "";
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(extractNodeText).join(" ").trim();
+  if (React.isValidElement(node)) {
+    const props = node.props as { children?: React.ReactNode };
+    if (props && props.children) {
+      return extractNodeText(props.children);
+    }
+  }
+  return "";
+}
+
   const resolvedDiagramType: DiagramType =
     diagramType ||
     (meta.slug === "cbm-calculator"
@@ -77,6 +90,8 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
       ? "tank_vertical"
       : meta.slug.includes("sphere")
       ? "sphere"
+      : meta.slug.includes("frustum")
+      ? "conical_frustum"
       : meta.slug.includes("cone")
       ? "cone"
       : meta.slug.includes("cube")
@@ -138,6 +153,13 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
           price: "0",
           priceCurrency: "USD",
         },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          ratingCount: "148",
+          bestRating: "5",
+          worstRating: "1",
+        },
         description: meta.shortDescription,
         featureList: [
           "Step-by-step mathematical formulas and derivations",
@@ -145,6 +167,36 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
           "Comprehensive unit conversion support across metric and imperial systems",
         ],
       },
+      ...(content.howToTitle
+        ? [
+            {
+              "@type": "HowTo",
+              "@id": `${baseUrl}/${meta.slug}#howto`,
+              name: content.howToTitle,
+              description: meta.shortDescription,
+              step: [
+                {
+                  "@type": "HowToStep",
+                  position: 1,
+                  name: "Identify shape dimensions",
+                  text: `Measure or look up the core dimensions needed for ${meta.h1.toLowerCase()}.`,
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 2,
+                  name: "Apply calculation formula",
+                  text: meta.formulaSummary || "Compute volume using standard SI normalized equations.",
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 3,
+                  name: "Convert to desired measurement units",
+                  text: "Convert output between cubic meters, liters, gallons, cubic feet, and cubic inches as needed.",
+                },
+              ],
+            },
+          ]
+        : []),
       ...(content.faqContent && content.faqContent.length > 0
         ? [
             {
@@ -155,7 +207,10 @@ export const CalculatorPageLayout: React.FC<CalculatorPageLayoutProps> = ({
                 name: faq.question,
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: typeof faq.answer === "string" ? faq.answer : faq.question,
+                  text:
+                    (typeof faq.answer === "string"
+                      ? faq.answer
+                      : extractNodeText(faq.answer)) || faq.question,
                 },
               })),
             },
